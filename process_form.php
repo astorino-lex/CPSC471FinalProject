@@ -69,6 +69,8 @@
 					// is an admin 
 					?>
 					<input type="button" value="Add Course" onclick="location='admin_add_course.php'" />
+					<input type="button" value="Select Course" onclick="location='admin_select_course.php'" />
+					<input type="button" value="View Notifications" onclick="location='admin_notifications.php'" />
 					<?php
 				}
 				else
