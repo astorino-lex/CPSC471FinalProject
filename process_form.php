@@ -66,7 +66,10 @@
 				
 				if($adminResult->num_rows >0)
 				{
-					// is an admin 
+					// is an admin
+					
+					$_SESSION['adminname'] = $name;
+					
 					?>
 					<input type="button" value="Add Course" onclick="location='admin_add_course.php'" />
 					<input type="button" value="Select Course" onclick="location='admin_select_course.php'" />
