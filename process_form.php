@@ -29,7 +29,6 @@
 			die("Connection_failed: " . $conn->connect_error);
 		}
 
-//		echo "connected Successfully";
 		print "<br>";
 		//Check if user exists in database:
 
@@ -46,11 +45,12 @@
 				{
 					if($pass == $row['password'])
 					{
-						print "<br>";
-						echo "Logged in as:";
-					//	print "<br>";
-					//	print "<br>";
-					//	echo "You are user: ";
+
+          ?>
+            <p style="text-align:left;padding-left:175px;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
+                  Logged in as:
+            </p>
+          <?php
 						echo $name;
 						print "<br>";
 						$founduser = true;
@@ -67,7 +67,6 @@
 			{
 				// Check if admin or student
 
-
 				$sql2 = "Select * from admin where user_email = '".$name."'";
 
 				$adminResult = $conn->query($sql2);
@@ -79,9 +78,12 @@
 					$_SESSION['adminname'] = $name;
 
 					?>
-					<input type="button" value="Add Course" onclick="location='admin_add_course.php'" />
-					<input type="button" value="Select Course" onclick="location='admin_select_course.php'" />
-					<input type="button" value="View Notifications" onclick="location='admin_notifications.php'" />
+          <input type="button" value="Add Course" onclick="location='admin_add_course.php'"
+                style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+					<input type="button" value="Select Course" onclick="location='admin_select_course.php'"
+                style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+					<input type="button" value="View Notifications" onclick="location='admin_notifications.php'"
+                style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<?php
 				}
 				else
@@ -91,9 +93,13 @@
           $_SESSION['studentname'] = $name;
 
 					?>
-					<input type="button" value="Select Course" onclick="location='student_select_course.php'" />
-          <input type="button" value="Favourite Course" onclick="location='student_favourite_course.php'" />
-					<input type="button" value="View Notifications" onclick="location='student_notifications.php'" />
+          <input type="button" value="Select Course" onclick="location='student_select_course.php'"
+              style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+          <input type="button" value="Favourite Course" onclick="location='student_favourite_course.php'"
+              style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+					<input type="button" value="View Notifications" onclick="location='student_notifications.php'"
+              style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+
           <?php
 				}
 
