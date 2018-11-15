@@ -14,7 +14,7 @@
   	  <input type=SUBMIT value="Login" style="font-family:impact;font-size:90%;width:8%;"><P>
 
         <!--BUTTONS-->
-        <input type="button" value="Create Account" onclick="location='create_account.html'"
+        <input type="button" value="Create Account" onclick="location='create_account.php'"
               style="font-family:impact;font-size:90%;width:15%;" />
 	   </form>
   </body>
