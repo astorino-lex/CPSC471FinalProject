@@ -16,7 +16,8 @@
 		$password = "password";
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
-
+		session_start();
+		
 		if($conn->connect_error)
 		{
 			die("Connection_failed: " . $conn->connect_error);
