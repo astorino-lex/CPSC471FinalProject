@@ -5,6 +5,10 @@
 
   <body>
 	<?php
+		
+		header("Cache-Control: no cache");
+		session_cache_limiter("private_no_expire");
+		session_start();
 		 $name  = $_POST['realname'];
 		 $pass  = $_POST['mypassword'];
 
@@ -16,7 +20,7 @@
 		$password = "password";
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
-		session_start();
+		
 		
 		if($conn->connect_error)
 		{

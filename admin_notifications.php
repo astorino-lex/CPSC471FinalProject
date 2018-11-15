@@ -49,6 +49,6 @@
 	
 	
 	?>
-	
+	<button onclick="history.go(-1);">Back To Home Page </button>
 	
 </html>
