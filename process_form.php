@@ -1,11 +1,13 @@
 <html>
   <head>
-	<title>Password test, page 2</title>
+	<title>Homepage</title>
   <head>
 
-  <body>
+    <body style="background-color:crimson;">
+      <p style="text-align:right;padding-top:75px"><image src="logo.png" class="img-responsive" alt="centered image"
+          height="100", width="300"></p>
 	<?php
-		
+
 		header("Cache-Control: no cache");
 		session_cache_limiter("private_no_expire");
 		session_start();
@@ -20,14 +22,14 @@
 		$password = "password";
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
-		
-		
+
+
 		if($conn->connect_error)
 		{
 			die("Connection_failed: " . $conn->connect_error);
 		}
 
-		echo "connected Successfully";
+//		echo "connected Successfully";
 		print "<br>";
 		//Check if user exists in database:
 
@@ -45,10 +47,10 @@
 					if($pass == $row['password'])
 					{
 						print "<br>";
-						echo "Logged In successfully using database!!!";
-						print "<br>";
-						print "<br>";
-						echo "You are user: ";
+						echo "Logged in as:";
+					//	print "<br>";
+					//	print "<br>";
+					//	echo "You are user: ";
 						echo $name;
 						print "<br>";
 						$founduser = true;
@@ -59,6 +61,7 @@
 			if($founduser == false)
 			{
 				echo "Couldn't find your account!";
+        //probably need to make this a popup
 			}
 			else
 			{
