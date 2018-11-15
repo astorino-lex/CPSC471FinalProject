@@ -60,10 +60,11 @@
 				// Check if admin or student
 				
 				
-				$sql2 = "Select * from admin where user_email = ".$name;
+				$sql2 = "Select * from admin where user_email = '".$name."'";
+				
 				$adminResult = $conn->query($sql2);
 				
-				if($adminResult)
+				if($adminResult->num_rows >0)
 				{
 					// is an admin 
 					?>
@@ -74,7 +75,7 @@
 				{
 					// is a student 
 					?>
-					<input type="button" value="Select Course" onclick="location='admin_add_course.php'" />
+					<input type="button" value="Select Course" onclick="location='student_select_course.php'" />
 					<?php
 				}
 				
