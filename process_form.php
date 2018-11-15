@@ -9,8 +9,8 @@
 		header("Cache-Control: no cache");
 		session_cache_limiter("private_no_expire");
 		session_start();
-		 $name  = $_POST['realname'];
-		 $pass  = $_POST['mypassword'];
+		 $name  = $_POST['user_email'];
+		 $pass  = $_POST['password'];
 
 		// Trying the database part
 
