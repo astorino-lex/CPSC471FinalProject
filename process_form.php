@@ -10,14 +10,14 @@
 
 		header("Cache-Control: no cache");
 		session_cache_limiter("private_no_expire");
-		session_start();
+	   session_start();
 		 $name  = $_POST['user_email'];
 		 $pass  = $_POST['password'];
 
 		// Trying the database part
 
 		$servername = "localhost";
-		$databasename = "cpsc471Project";
+		$databasename = "cpsc471project";
 		$username = "dylan";
 		$password = "password";
 
