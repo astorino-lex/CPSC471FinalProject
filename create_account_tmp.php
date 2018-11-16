@@ -12,30 +12,7 @@
   $faculty = $_POST['faculty'];
   $faculty2 = $_POST['faculty2'];
   $_SESSION['studentname'] = $user_email;
-
-  $sql = "Insert into end_user (user_email, password, first_name, last_name) ";
-	$sql = $sql."values('".$user_email."', '".$password."', '".$first_name."', '".$last_name."');";
-
-  $sql = "Insert into student (user_email, year_of_study) ";
-	$sql = $sql."values('".$user_email."', '".$password."', '".$first_name."', '".$last_name."');";
-
-  $sql = "Insert into student_degree_programs (user_email, degree_program)";
-  $sql = $sql."values('".$user_email."', '".$degree_program."');";
-
-  $sql = "Insert into student_facultys (user_email, faculty)";
-  $sql = $sql."values('".$user_email."', '".$faculty."');";
-
-  if (isset($degree_program2)) {
-    $sql = "Insert into student_degree_programs (user_email, degree_program)";
-    $sql = $sql."values('".$user_email."', '".$degree_program2."');";
-  }
-
-  if (isset($faculty2)) {
-    $sql = "Insert into student_facultys (user_email, faculty)";
-    $sql = $sql."values('".$user_email."', '".$faculty2."');";
-  }
-
-
+  
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
@@ -43,16 +20,38 @@
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
+  $sql = "Insert into end_user (user_email, password, first_name, last_name)";
+	$sql = $sql."values('".$user_email."', '".$password."', '".$first_name."', '".$last_name."');";
+
 	$query = $conn->query($sql);
+	
+  $sql = "Insert into student (user_email, year_of_study) ";
+	$sql = $sql."values('".$user_email."', '".$year_of_study."');";
 
-	if($query)
-	{
-		print "it worked";
-	}
-	else
-	{
-		print "it didnt work";
-	}
+	$query = $conn->query($sql);
+	
+  $sql = "Insert into student_degree_programs (user_email, degree_program)";
+  $sql = $sql."values('".$user_email."', '".$degree_program."');";
 
-    header("Location:admin_select_course.php");
+  $query = $conn->query($sql);
+  
+  $sql = "Insert into student_facultys (user_email, faculty)";
+  $sql = $sql."values('".$user_email."', '".$faculty."');";
+	
+	$query = $conn->query($sql);
+	
+  if (isset($degree_program2)) {
+    $sql = "Insert into student_degree_programs (user_email, degree_program)";
+    $sql = $sql."values('".$user_email."', '".$degree_program2."');";
+	$query = $conn->query($sql);
+  }
+
+  if (isset($faculty2)) {
+    $sql = "Insert into student_facultys (user_email, faculty)";
+    $sql = $sql."values('".$user_email."', '".$faculty2."');";
+	$query = $conn->query($sql);
+  }
+
+
+    //header("Location:admin_select_course.php");
 ?>
