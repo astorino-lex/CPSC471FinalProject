@@ -16,7 +16,7 @@
 
 		// Trying the database part
 
-		$servername = "localhost";
+		$servername = "127.0.0.1";
 		$databasename = "cpsc471project";
 		$username = "dylan";
 		$password = "password";
