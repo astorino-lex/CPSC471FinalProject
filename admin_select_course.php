@@ -23,8 +23,8 @@
 	$sql = "Select * from course where user_email = '".$admin_name."'";
 
 
-	$servername = "127.0.0.1";
-		$databasename = "cpsc471Project";
+		$servername = "127.0.0.1";
+		$databasename = "cpsc471project";
 		$username = "dylan";
 		$password = "password";
 
@@ -36,7 +36,8 @@
 		$counter  = 0;
 		while($row = $query->fetch_assoc())
 		{
-			echo "Course name:&nbsp;&nbsp;".$row['course_name'];
+			echo "Course name: ";
+			echo $row['course_name'];
 			echo ", Course id:&nbsp;&nbsp;".$row['id'];
 			$course_list[$counter] = $row['course_name'];
 			$course_id_list[$counter] = $row['id'];
