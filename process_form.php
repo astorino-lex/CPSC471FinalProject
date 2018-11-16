@@ -97,8 +97,11 @@ session_start();
 				else
 				{
 					// is a student
-
+          
           $_SESSION['studentname'] = $name;
+          $_SESSION['course_exists'] = FALSE;
+          $_SESSION['favourite_exists'] = FALSE;
+          $_SESSION['favourite_checker'] = FALSE;
 
 					?>
           <input type="button" value="Select Course" onclick="location='student_select_course.php'"
@@ -109,9 +112,8 @@ session_start();
               style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 
           <?php
+
 				}
-
-
 
 			}
 
