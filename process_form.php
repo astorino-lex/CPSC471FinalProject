@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+?>
+
 <html>
   <head>
 	<title>Homepage</title>
@@ -8,9 +13,9 @@
           height="100", width="300"></p>
 	<?php
 
-		header("Cache-Control: no cache");
-		session_cache_limiter("private_no_expire");
-	   session_start();
+		 header("Cache-Control: no cache");
+		 session_cache_limiter("private_no_expire");
+
 		 $name  = $_POST['user_email'];
 		 $pass  = $_POST['password'];
 
@@ -77,7 +82,7 @@
 				{
 					// is an admin
 
-					$_SESSION['admin_name'] = $name;
+					$_SESSION['adminname'] = $name;
 
 					?>
           <input type="button" value="Add Course" onclick="location='admin_add_course.php'"
