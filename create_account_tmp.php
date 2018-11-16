@@ -12,7 +12,7 @@
   $faculty = $_POST['faculty'];
   $faculty2 = $_POST['faculty2'];
   $_SESSION['studentname'] = $user_email;
-  
+
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
@@ -24,22 +24,22 @@
 	$sql = $sql."values('".$user_email."', '".$password."', '".$first_name."', '".$last_name."');";
 
 	$query = $conn->query($sql);
-	
+
   $sql = "Insert into student (user_email, year_of_study) ";
 	$sql = $sql."values('".$user_email."', '".$year_of_study."');";
 
 	$query = $conn->query($sql);
-	
+
   $sql = "Insert into student_degree_programs (user_email, degree_program)";
   $sql = $sql."values('".$user_email."', '".$degree_program."');";
 
   $query = $conn->query($sql);
-  
+
   $sql = "Insert into student_facultys (user_email, faculty)";
   $sql = $sql."values('".$user_email."', '".$faculty."');";
-	
+
 	$query = $conn->query($sql);
-	
+
   if (isset($degree_program2)) {
     $sql = "Insert into student_degree_programs (user_email, degree_program)";
     $sql = $sql."values('".$user_email."', '".$degree_program2."');";
@@ -53,5 +53,5 @@
   }
 
 
-    //header("Location:admin_select_course.php");
+  header("Location:process_form.php");
 ?>
