@@ -28,7 +28,8 @@
 		$row_num = $query->num_rows;
 		while($row = $query->fetch_assoc())
 		{
-			$tmp = $row_num - $query->num_rows + 1;
+			print "<br>";
+			$tmp = 1;
 			echo "Notification #".$tmp;
 			print "<br>";
 			$sql2 = "Select * from notification where id=".$row['notification_id'];
@@ -44,6 +45,7 @@
 					echo $row2['message'];
 				}
 			}
+			$tmp = $tmp + 1;
 		}
 	}
 	
