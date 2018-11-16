@@ -97,7 +97,7 @@ session_start();
 				else
 				{
 					// is a student
-          
+
           $_SESSION['studentname'] = $name;
           $_SESSION['course_exists'] = FALSE;
           $_SESSION['favourite_exists'] = FALSE;
