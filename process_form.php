@@ -51,7 +51,7 @@ session_start();
 					{
 
           ?>
-            <p style="text-align:left;padding-left:200px;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
+            <p style="text-align:left;margin-left:15%;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
                   Logged in as:
           <?php
 						echo $name;

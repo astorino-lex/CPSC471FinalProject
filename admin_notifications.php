@@ -1,39 +1,57 @@
+<?php
+		session_start();
+	?>
+
 <html>
 	<head>
 		<title>
 			Notifications
 		</title>
 	</head>
-	
+
+	<body style="background-color:crimson;">
+		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
+					height="100", width="300"></p>
+			<input type="button" value="Back to Home Page" onclick="history.go(-1);"
+					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
+
 	<?php
-	session_start();
 	$admin_name = $_SESSION['adminname'];
 	$sql = "Select * from admin_notifications where email = '".$admin_name."'";
-	
-	
-	
-	$servername = "localhost";
+
+
+
+	$servername = "127.0.0.1";
 		$databasename = "cpsc471Project";
 		$username = "dylan";
 		$password = "password";
-		
+
 		$conn = new mysqli($servername, $username, $password, $databasename);
-		
+
 	$query = $conn->query($sql);
-	
-	if($query->num_rows > 0)
+
+	if($query)
 	{
-		echo "Notifications:";
-		print "<br>";
+
+		?>
+		<p style="text-align:left;margin-left:20%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;">
+					Notifications:
+		<P></p>
+		<?php
 		$row_num = $query->num_rows;
 		$tmp = 1;
 		while($row = $query->fetch_assoc())
 		{
-			print "<br>";
-			
-			echo "Notification #";
+			?>
+				<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;width: 40%; 
+					margin-left:26%;font-family:impact;font-size:120%;color:black;">
+							Notification #:
+			<?php
 			echo $tmp;
 			print "<br>";
+			?>
+				</p>
+			<?php
 			$sql2 = "Select * from notification where id=".$row['notification_id'];
 			$query2= $conn->query($sql2);
 			if($query2->num_rows > 0)
@@ -45,16 +63,15 @@
 					print "<br>";
 					echo "Message: ";
 					echo $row2['message'];
-					
+
 				}
 			}
 			$tmp = $tmp + 1;
 		}
 	}
-	
-	
-	
+
+
+
 	?>
-	<button onclick="history.go(-1);">Back To Home Page </button>
-	
+</body>
 </html>
