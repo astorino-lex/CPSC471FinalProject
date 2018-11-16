@@ -7,7 +7,8 @@
 	$course_name  = $_POST['course_name'];
 	$course_id  = $_POST['course_id'];
 	print "<h3>";
-	echo $course_name;
+	echo $course_name." ";
+	echo $course_id;
 	print "</h3>";
 	
 	$servername = "localhost";

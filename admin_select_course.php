@@ -27,7 +27,8 @@
 		while($row = $query->fetch_assoc())
 		{
 			print "<br>";
-			echo $row['course_name'];
+			echo "Course name: ".$row['course_name'];
+			echo ", Course id: ".$row['id'];
 			$course_list[$counter] = $row['course_name'];
 			$course_id_list[$counter] = $row['id'];
 			$counter = $counter + 1;
@@ -46,7 +47,7 @@
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
   	   Course ID: <input type=TEXT name="course_id"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
-  	  <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:8%;"><P>
+  	  <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:10%;"><P>
 
         <!--BUTTONS-->
 	   </form>
