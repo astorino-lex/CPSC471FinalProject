@@ -90,6 +90,8 @@ session_start();
                 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<input type="button" value="View Notifications" onclick="location='admin_notifications.php'"
                 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+					<input type="button" value="Ban Students" onclick="location='admin_ban_student_page.php'"
+                style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<?php
 				}
 				else
