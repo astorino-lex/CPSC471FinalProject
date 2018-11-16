@@ -4,7 +4,7 @@
   <head>
 
     <body style="background-color:crimson;">
-      <p style="text-align:right;padding-top:75px"><image src="logo.png" class="img-responsive" alt="centered image"
+      <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
           height="100", width="300"></p>
 	<?php
 
@@ -47,13 +47,15 @@
 					{
 
           ?>
-            <p style="text-align:left;padding-left:175px;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
+            <p style="text-align:left;padding-left:200px;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
                   Logged in as:
-            </p>
           <?php
 						echo $name;
 						print "<br>";
 						$founduser = true;
+						?>
+						</p>
+						<?php
 					}
 				}
 			}

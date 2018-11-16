@@ -27,19 +27,29 @@
 		while($row = $query->fetch_assoc())
 		{
 			print "<br>";
+			echo $row['course_name'];
 			$course_list[$counter] = $row['course_name'];
+			$course_id_list[$counter] = $row['id'];
 			$counter = $counter + 1;
-			//echo $row['course_name'];
-			//?>
-			<input type="button" value=<?php echo $row['course_name'] ?> name=<?php echo $row['course_name'] ?> onclick="location='admin_course_page.php' <?php $_SESSION['course_name'] = name ?>" />
-			<br>
+			?>
+			
+			
 			<?php
 			
 		}
 	}
-	
-	
 	?>
+	
+	<form action=admin_course_page.php method=POST
+          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
+  	   Course Name: <input type=TEXT name="course_name"
+          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
+  	   Course ID: <input type=TEXT name="course_id"
+          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
+  	  <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:8%;"><P>
+
+        <!--BUTTONS-->
+	   </form>
 	
 	
 </html>
