@@ -1,10 +1,7 @@
 <html>
 	<body>
-		<h3>
-			Here is where we add courses 
-		</h3>
-		course name, course id, title, semester , admin email, forum id, number of questions, number of answers.
-		
+		<button onclick="history.go(-1);">Back To Home Page </button>
+		<br><br>
 		<form action=admin_add_course_tmp.php method=POST
 			style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
 			Course Name: <input type=TEXT name="course_name"

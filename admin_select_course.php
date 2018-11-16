@@ -1,7 +1,8 @@
 <html>
 	<head>
+	<button onclick="history.go(-1);">Back To Home Page </button> <br>
 		<title>
-			Select Course
+			Your Courses:
 		</title>
 	</head>
 	
