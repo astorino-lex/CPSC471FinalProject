@@ -36,9 +36,15 @@
 		$counter  = 0;
 		while($row = $query->fetch_assoc())
 		{
+			?>
+				<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;
+					width:40%;margin-left:26%;font-family:impact;font-size:120%;color:black;">
+
+			<?php
 			echo "Course name: ";
 			echo $row['course_name'];
 			echo ", Course id:&nbsp;&nbsp;".$row['id'];
+			print "<BR>";
 			$course_list[$counter] = $row['course_name'];
 			$course_id_list[$counter] = $row['id'];
 			$counter = $counter + 1;

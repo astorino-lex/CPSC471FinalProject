@@ -43,8 +43,8 @@
 		while($row = $query->fetch_assoc())
 		{
 			?>
-				<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;
-					width:40%;margin-left:26%;font-family:impact;font-size:120%;color:black;">
+				<p style="text-align:left;border:1px solid black;border-radius: 3px;padding-left:2px;
+					width:40%;margin-left:26%;font-family:impact;font-size:100%;color:black;">
 
 			<?php
 			echo "Notification #: ";
