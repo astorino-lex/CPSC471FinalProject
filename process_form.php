@@ -77,7 +77,7 @@
 				{
 					// is an admin
 
-					$_SESSION['adminname'] = $name;
+					$_SESSION['admin_name'] = $name;
 
 					?>
           <input type="button" value="Add Course" onclick="location='admin_add_course.php'"

@@ -7,7 +7,7 @@
 	
 	<?php
 	session_start();
-	$admin_name = $_SESSION['adminname'];
+	$admin_name = $_POST['admin_name'];
 	$sql = "Select * from course where user_email = '".$admin_name."'";
 	
 	
