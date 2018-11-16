@@ -3,7 +3,7 @@
 Approve content using mysql script here:
 
 <br>
-<embed src="Assignment4.pdf" width=800 height=1000	/>
+<!--<embed src="Assignment4.pdf" width=800 height=1000	/> -->
 
 
 <?php 
@@ -21,6 +21,8 @@ Approve content using mysql script here:
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
 	$conn->query($sql);
+	
+	header("Location:admin_course_page.php");
 	
 ?>
 

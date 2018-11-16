@@ -18,6 +18,8 @@
 
 	$conn->query($sql);
 	
+	header("Location:admin_course_page.php");
+	
 ?>
 
 </html>
