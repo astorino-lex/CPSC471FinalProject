@@ -1,5 +1,7 @@
 <?php
 ob_start();
+header("Cache-Control: no cache");
+session_cache_limiter("private_no_expire");
 session_start();
 ?>
 
@@ -12,9 +14,6 @@ session_start();
       <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
           height="100", width="300"></p>
 	<?php
-
-		 header("Cache-Control: no cache");
-		 session_cache_limiter("private_no_expire");
 
 		 $name  = $_POST['user_email'];
 		 $pass  = $_POST['password'];
