@@ -12,6 +12,8 @@
   <body style="background-color:crimson;">
       <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
           height="100", width="300"></p>
+		  <input type="button" value="Back to Home Page" onclick="history.go(-1);"
+					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 	<?php
 	
 		session_start();
@@ -53,19 +55,20 @@
 	}
 	
 	?>
+	<P>
     <form action=admin_ban_student_tmp_page.php method=POST
-          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
+          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;float:left;">
   	   Student email: <input type=TEXT name="ban_user_email"
-          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"
+          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
 		  required><BR>
-  	  <input type=SUBMIT value="Ban Student" style="font-family:impact;font-size:90%;width:12%;">
+  	  <input type=SUBMIT value="Ban Student" style="font-family:impact;font-size:90%;width:80%;">
 	   </form>
 	   <form action=admin_unban_student_tmp_page.php method=POST
-          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
-  	   Student email: <input type=TEXT name="ban_user_email"
-          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"
+          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;float:right;">
+  	   Student email: <input type=TEXT name="unban_user_email"
+          style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
 		  required><BR>
-  	  <input type=SUBMIT value="Un-Ban Student" style="font-family:impact;font-size:90%;width:12%;"><P>
+  	  <input type=SUBMIT value="Un-Ban Student" style="font-family:impact;font-size:90%;width:80%;"><P>
 	   </form>
   </body>
 
