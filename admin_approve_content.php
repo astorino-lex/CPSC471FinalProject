@@ -2,7 +2,7 @@
 
 Approve content using mysql script here:
 
-
-<embed src="Assignment4.pdf" />
+<br>
+<embed src="Assignment4.pdf" width=800 height=1000	/>
 
 </html>
