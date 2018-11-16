@@ -43,7 +43,7 @@
 		while($row = $query->fetch_assoc())
 		{
 			?>
-				<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;width: 40%; 
+				<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;width: 40%;
 					margin-left:26%;font-family:impact;font-size:120%;color:black;">
 							Notification #:
 			<?php
@@ -58,6 +58,19 @@
 			{
 				while($row2 = $query2->fetch_assoc())
 				{
+					print "<br>";
+					echo "Date received: ";
+					echo $row2['month'];
+					echo " ";
+					echo $row2['day'];
+					echo ", ";
+					echo $row2['year'];
+					print "<br>";
+					echo "Time received: ";
+					echo $row2['hours'];
+					echo ":";
+					echo $row2['minute'];
+					print "<br>";
 					echo "Subject: ";
 					echo $row2['subject'];
 					print "<br>";
