@@ -39,6 +39,7 @@
 			echo "Course name: ";
 			echo $row['course_name'];
 			echo ", Course id:&nbsp;&nbsp;".$row['id'];
+			print "<BR>";
 			$course_list[$counter] = $row['course_name'];
 			$course_id_list[$counter] = $row['id'];
 			$counter = $counter + 1;
