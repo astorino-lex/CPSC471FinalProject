@@ -52,6 +52,9 @@
 	$query = $conn->query($sql);
   }
 
-
+	
+	$_SESSION['user_email'] = $user_email;
+	$_SESSION['password'] = $password;
+	
   header("Location:process_form.php");
 ?>
