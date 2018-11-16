@@ -1,49 +1,52 @@
+<?php
+	session_start();
+ ?>
+
 <html>
 	<head>
-	<button onclick="history.go(-1);">Back To Home Page </button> <br>
 		<title>
-			Your Courses:
+			Select A Course
 		</title>
 	</head>
-	
+
+	<body style="background-color:crimson;">
+		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
+					height="100", width="300"></p>
+			<input type="button" value="Back to Home Page" onclick="history.go(-1);"
+					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
+						<p style="text-align:left;margin-left:20%;font-family:impact;font-size:120%;color:black;">
+									Select A Course:
+						</p>
+
 	<?php
-	session_start();
 	$admin_name = $_SESSION['admin_name'];
 	$sql = "Select * from course where user_email = '".$admin_name."'";
-	
-	
-	$servername = "localhost";
+
+
+	$servername = "127.0.0.1";
 		$databasename = "cpsc471Project";
 		$username = "dylan";
 		$password = "password";
-		
+
 		$conn = new mysqli($servername, $username, $password, $databasename);
-		
+
 	$query = $conn->query($sql);
-	if($query->num_rows > 0)
+	if($query)
 	{
-		echo "Courses:";
-		print "<br>";
 		$counter  = 0;
 		while($row = $query->fetch_assoc())
 		{
-			print "<br>";
-			echo "Course name: ".$row['course_name'];
-			echo ", Course id: ".$row['id'];
+			echo "Course name:&nbsp;&nbsp;".$row['course_name'];
+			echo ", Course id:&nbsp;&nbsp;".$row['id'];
 			$course_list[$counter] = $row['course_name'];
 			$course_id_list[$counter] = $row['id'];
 			$counter = $counter + 1;
-			?>
-			
-			
-			<?php
-			
 		}
 	}
 	?>
-	
+
 	<form action=admin_course_page.php method=POST
-          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
+          style="text-align:center;font-family:impact;font-size:120%;color:black;">
   	   Course Name: <input type=TEXT name="course_name"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
   	   Course ID: <input type=TEXT name="course_id"
@@ -52,6 +55,6 @@
 
         <!--BUTTONS-->
 	   </form>
-	
-	
+
+
 </html>
