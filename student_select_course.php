@@ -39,6 +39,11 @@
 
 		}
 	}
+	else{
+		print "<br>";
+		echo "No courses to display yet...";
+		echo "<script type='text/javascript'>alert('You have not favourited any courses yet!')</script>";
+	}
 	?>
 
 	<form action=student_course_page.php method=POST
@@ -48,9 +53,10 @@
   	   Course ID: <input type=TEXT name="course_id"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
   	  <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:10%;"><P>
-
-        <!--BUTTONS-->
 	   </form>
+
+		 <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
+				 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 
 
 </html>
