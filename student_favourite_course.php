@@ -46,9 +46,12 @@
         style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:10%;"
         required><P>
     <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:10%;"><P>
-   </form>
+
+	 </form>
+
 	 <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
 			 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+
 <?php
 
   if ($checker){
