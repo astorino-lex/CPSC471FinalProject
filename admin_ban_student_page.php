@@ -1,10 +1,7 @@
-<html>
-
 <?php
-
-	
-?>   
-
+session_start();
+?>
+<html>
 <head>
 	   <title>Ban Student</title>
   <head>
@@ -15,56 +12,67 @@
 		  <input type="button" value="Back to Home Page" onclick="history.go(-1);"
 					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 	<?php
-	
-		session_start();
-	
+
 	$sql = "Select * from student;";
-	
+
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
 	$password = "password";
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
-	
+
 	$query = $conn->query($sql);
-	
-	
+
+
 	if($query)
 	{
+		?>
+		<p style="text-align:left;margin-left:20%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;">
+					Students enrolled in courses you manage:
+		<P></p>
+		<?php
 		while($row = $query->fetch_assoc())
 		{
 			?>
-			<div>
+			<p style="text-align:left;border:1px solid black;border-radius: 3px;padding-left:2px;
+				width:40%;margin-left:26%;font-family:impact;font-size:100%;color:black;">
 			<?php
-			echo "Student email: ".$row['user_email']."&nbsp;&nbsp;&nbsp;";
-			
+			echo "Student email:&nbsp;&nbsp;".$row['user_email']."&nbsp;&nbsp;&nbsp;";
+
 			$sql2 = "select * from BANS where stud_email='".$row['user_email']."';";
-			
+
 			$query2 = $conn->query($sql2);
-			
+
 			if($query2->num_rows > 0)
 			{
-				echo "*** USER BANNED ***";
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* USER BANNED *";
 			}
 			else
 			{
-				echo "*** USER ACTIVE ***";
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* USER ACTIVE *";
 			}
 		}
 	}
-	
+
 	?>
 	<P>
+	</p>
     <form action=admin_ban_student_tmp_page.php method=POST
-          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;float:left;">
+          style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
   	   Student email: <input type=TEXT name="ban_user_email"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
 		  required><BR>
   	  <input type=SUBMIT value="Ban Student" style="font-family:impact;font-size:90%;width:80%;">
 	   </form>
 	   <form action=admin_unban_student_tmp_page.php method=POST
-          style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;float:right;">
+          style="margin-right:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:right;">
   	   Student email: <input type=TEXT name="unban_user_email"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
 		  required><BR>
