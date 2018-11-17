@@ -1,3 +1,7 @@
+<?php
+	
+	session_start();
+?>
 <html>
 <head>
 	   <title>Admin Course Page</title>
@@ -11,8 +15,6 @@
 <body>
 
 <?php
-	
-	session_start();
 	$course_name  = $_POST['course_name'];
 	$course_id  = $_POST['course_id'];
 	print "<h1>";
