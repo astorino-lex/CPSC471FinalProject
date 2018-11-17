@@ -2,7 +2,7 @@
 	session_start();
 ?>
 <html>
-<head>
+	<head>
 	   <title>Admin Course Page</title>
   </head>
 
@@ -29,12 +29,16 @@
 
 	if($query)
 	{
-		echo $course_name."&nbsp;&nbsp;";
-		echo $course_id;
+		?>
+		<p style="text-align:left;margin-left:15%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;">
+		<?php
+		echo $course_name."&nbsp;";
+		echo $course_id."&nbsp;&nbsp;";
 		while($row = $query->fetch_assoc())
 		{
 			echo $row['title'];
 		}
+	}
 
 	$sql = "Select * from course_content where course_name = '".$course_name."' AND course_id =".$course_id;
 
@@ -56,27 +60,28 @@
 	}
 
 ?>
-	<div style="text-align:left;font-family:impact;font-size:120%;color:black;">
-	<u>
+	<P></p>
+	<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
+		<u>
 		Approve Content Upload
 		</u>
 	</div>
 	<form action=admin_approve_content.php method=POST
-          style="text-align:left;font-family:impact;font-size:100%;color:black;">
+          style="text-align:center;font-family:impact;font-size:100%;color:black;">
   	   Content ID: <input type=TEXT name="content_id"
           style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
   	   Content Title: <input type=TEXT name="content_title"
           style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
   	  <input type=SUBMIT value="Approve Content" style="font-family:impact;font-size:90%;width:12%;"><P>
-	   </form>
+	 </form>
 
-	<div style="padding-top:20;text-align:left;font-family:impact;font-size:120%;color:black;">
+	<div style="padding-top:20;text-align:center;font-family:impact;font-size:120%;color:black;">
 		<u>
 			Remove Content
 		</u>
 	</div>
 	   <form action=admin_remove_content.php method=POST
-          style="text-align:left;font-family:impact;font-size:100%;color:black;">
+          style="text-align:center;font-family:impact;font-size:100%;color:black;">
   	   Content ID: <input type=TEXT name="content_id"
           style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
   	   Content Title: <input type=TEXT name="content_title"
