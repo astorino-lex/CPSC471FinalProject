@@ -4,7 +4,7 @@
 <html>
 <head>
 	   <title>Admin Course Page</title>
-  <head>
+  </head>
 
   <body style="background-color:crimson;">
       <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
@@ -26,23 +26,15 @@
 	$sql = "Select title from course where id=".$course_id." AND course_name= '".$course_name."'";
 
 	$query = $conn->query($sql);
-	?>
-	<hi style="margin-left: 20%;font-family:impact;font-size:90%;width:12%;color:black;">
-	//print "<h1>";
-	<?php
+
 	if($query)
 	{
+		echo $course_name."&nbsp;&nbsp;";
+		echo $course_id;
 		while($row = $query->fetch_assoc())
 		{
 			echo $row['title'];
 		}
-	}
-	echo $course_name."&nbsp;&nbsp;";
-	echo $course_id;
-	echo "&nbsp;&nbsp;";
-//	print "</h1>";
-
-
 
 	$sql = "Select * from course_content where course_name = '".$course_name."' AND course_id =".$course_id;
 
@@ -64,7 +56,6 @@
 	}
 
 ?>
-<body>
 	<div style="text-align:left;font-family:impact;font-size:120%;color:black;">
 	<u>
 		Approve Content Upload
