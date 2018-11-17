@@ -9,8 +9,27 @@
   <body style="background-color:crimson;">
       <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
           height="100", width="300"></p>
-			<input type="button" value="Back to Home Page" onclick="history.go(-1);"
-							style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
+			<input type="button" value="Back to Select A Course Page" onclick="history.go(-1);"
+							style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
+
+			<style>
+					table {
+					    font-family:impact;
+							font-size:90%;;
+					    border-collapse: collapse;
+					    width: 100%;
+					}
+
+					td, th {
+					    border: 1px solid black;
+					    text-align: left;
+					    padding: 8px;
+					}
+
+					tr:nth-child(even) {
+					    background-color: #dddddd;
+					}
+				</style>
 
 <?php
 	$course_name  = $_POST['course_name'];
@@ -44,6 +63,19 @@
 
 	$query = $conn->query($sql);
 	// We can make this into a table to look better later...  for now this works
+	?>
+	<table>
+	  <tr>
+	    <th>ID</th>
+	    <th>Title</th>
+			<th>Course ID</th>
+			<th>Course Name</th>
+	    <th>Report Status</th>
+			<th>Approval Status</th>
+	  </tr>
+	  <tr>
+	<?php
+
 	if($query->num_rows > 0)
 	{
 		while($row = $query->fetch_assoc())
