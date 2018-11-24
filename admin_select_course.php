@@ -19,7 +19,7 @@
 						</p>
 
 	<?php
-	$admin_name = $_SESSION['admin_name'];
+	$admin_name = $_SESSION['user_email'];
 	$sql = "Select * from course where user_email = '".$admin_name."'";
 
 
