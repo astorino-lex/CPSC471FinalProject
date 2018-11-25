@@ -111,6 +111,7 @@ session_start();
           $_SESSION['course_exists'] = FALSE;
           $_SESSION['favourite_exists'] = FALSE;
           $_SESSION['favourite_checker'] = FALSE;
+          $_SESSION['answer_unvalid'] = FALSE;
 
 					?>
           <input type="button" value="Select Course" onclick="location='student_select_course.php'"

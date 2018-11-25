@@ -5,6 +5,8 @@
 
 	session_start();
 
+	$answer_unvalid = $_SESSION['answer_unvalid'];
+
 	print "<h3>";
 	echo strtoupper($_SESSION['c_name']." ");
 	echo $_SESSION['c_id'];
@@ -27,7 +29,7 @@
   {
     while($row = $questions_query->fetch_assoc())
 		{
-      echo "Question ".$row['q_id'].": ".$row['content'];
+      echo "Question id - ".$row['q_id'].": ".$row['content'];
       print"<br>";
       echo "Posted on: ".$row['month'];
       echo " ".$row['day'];
@@ -75,8 +77,15 @@
     Question ID: <input type=TEXT name="q_id"
        style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
    required><BR>
-  <input type=SUBMIT value="Post Answer to a Question" style="font-family:impact;font-size:90%;width:80%;"><P>
+  <input type=SUBMIT value="Post Answer to the Question" style="font-family:impact;font-size:90%;width:80%;"><P>
  </form>
+
+<?php
+	if ($answer_unvalid == TRUE){
+		$_SESSION['answer_unvalid'] = FALSE;
+		echo "<script type='text/javascript'>alert('The question ID was not valid, please try again...')</script>";
+	}
+ ?>
 
 </body>
 </html>
