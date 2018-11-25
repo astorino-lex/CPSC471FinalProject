@@ -80,6 +80,9 @@
   <input type=SUBMIT value="Post Answer to the Question" style="font-family:impact;font-size:90%;width:80%;"><P>
  </form>
 
+ <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
+ 		style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
+			
 <?php
 	if ($answer_unvalid == TRUE){
 		$_SESSION['answer_unvalid'] = FALSE;
