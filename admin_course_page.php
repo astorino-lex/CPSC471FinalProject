@@ -14,8 +14,9 @@
 
 			<style>
 					table {
+							margin-left:-10%;
 					    font-family:impact;
-							font-size:90%;;
+							font-size:90%;
 					    border-collapse: collapse;
 					    width: 100%;
 					}
@@ -27,7 +28,7 @@
 					}
 
 					tr:nth-child(even) {
-					    background-color: #dddddd;
+					    background-color: #B22222;
 					}
 				</style>
 
@@ -65,9 +66,10 @@
 	// We can make this into a table to look better later...  for now this works
 	?>
 	<table>
-	  <tr>
+	  <tr style = "background-color: DarkRed">
 	    <th>ID</th>
 	    <th>Title</th>
+			<th>Format</th>
 			<th>Course ID</th>
 			<th>Course Name</th>
 	    <th>Report Status</th>
@@ -80,18 +82,37 @@
 	{
 		while($row = $query->fetch_assoc())
 		{
-			echo "id: ".$row['id'];
-			echo ", title: ".$row['title'];
-			echo ", format: ".$row['format'];
-			echo ", report status: ".$row['report_status'];
-			echo ", user email: ".$row['user_email'];
-			echo ", approval status: ".$row['approval_status'];
-			echo ", course id: ".$row['course_id'];
-			echo ", course name: ".$row['course_name'];
+			?>
+			<tr>
+				<th>  <?php echo $row['id']; ?> </th>
+				<th>	<?php echo $row['title']; ?> </th>
+				<th>	<?php echo $row['format']; ?> </th>
+				<th>	<?php echo $row['course_id']; ?> </th>
+				<th>	<?php echo $row['course_name']; ?> </th>
+				<th>	<?php
+				$zero = 0;
+				$one = 1;
+				if ($row['report_status'] == $zero) {
+					echo "Not reported";
+				}
+				elseif($row['report_status'] == $one) {
+					echo "Reported";
+				}
+				?> </th>
+				<th>	<?php
+				if ($row['approval_status'] == $zero) {
+					echo "Unapproved";
+				}
+				elseif($row['approval_status'] == $one) {
+					echo "Approved";
+				}
 		}
 	}
 
 ?>
+	</th>
+	</tr>
+	</table>
 	<P></p>
 	<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
 		<u>

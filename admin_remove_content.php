@@ -1,14 +1,10 @@
-<html>
-
-	Remove the content from the database here:
-	
-	<?php 
-
+<?php
+	ob_start();
 	$content_title = $_POST['content_title'];
 	$content_id = $_POST['content_id'];
-	
-	$sql = "DELETE FROM content WHERE title = '".$content_title."' AND id=".$content_id.";";
-	
+
+	$sql = "DELETE FROM course_content WHERE title = '".$content_title."' AND id=".$content_id.";";
+
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
@@ -17,9 +13,7 @@
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
 	$conn->query($sql);
-	
-	header("Location:admin_course_page.php");
-	
-?>
 
-</html>
+	header("Location:admin_course_page.php");
+
+?>

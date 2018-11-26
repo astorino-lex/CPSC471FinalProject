@@ -1,18 +1,11 @@
-<html>
-
-Approve content using mysql script here:
-
-<br>
-<!--<embed src="Assignment4.pdf" width=800 height=1000	/> -->
-
-
-<?php 
-
+<?php
+	ob_start();
+	session_start();
 	$content_title = $_POST['content_title'];
 	$content_id = $_POST['content_id'];
-	
-	$sql = "Update content set approval_status = 'approved' WHERE title = '".$content_title."' AND id=".$content_id.";";
-	
+
+	$sql = "UPDATE course_content SET approval_status='1' WHERE title = '".$content_title."' AND id=".$content_id.";";
+
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
@@ -21,9 +14,6 @@ Approve content using mysql script here:
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
 	$conn->query($sql);
-	
-	header("Location:admin_course_page.php");
-	
-?>
 
-</html>
+	header("Location:admin_course_page.php");
+?>

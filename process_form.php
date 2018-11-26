@@ -129,7 +129,7 @@ session_start();
 
 		}
 		else{
-			echo "someone didn't make any accounts yet LOL get TROLLLLEDDDD";
+		//	echo "someone didn't make any accounts yet LOL get TROLLLLEDDDD";
 		}
 
 
