@@ -1,9 +1,25 @@
+<?php
+	ob_start();
+	session_start();
+?>
+
 <html>
-<body>
+	<head>
+		<title>
+		 	Favourite A Course
+		</title>
+	</head>
+
+	<body style="background-color:crimson;">
+		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
+					height="100", width="300"></p>
+			<input type="button" value="Back to Home Page" onclick="history.go(-1);"
+					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
+						<p style="text-align:left;margin-left:20%;font-family:impact;font-size:120%;color:black;">
+									Courses Avaliable:
+						</p>
 
 <?php
-
-	session_start();
 	$student_name = $_SESSION['studentname'];
   $course_exists = $_SESSION['course_exists'];
   $fav_exists = $_SESSION['favourite_exists'];
@@ -19,16 +35,17 @@
 	$sql = "Select * from course";
 
 	$query = $conn->query($sql);
-	// We can make this into a table to look better later...  for now this works
+
 	if($query)
 	{
-    print "<br>";
-    echo "Courses avaliable:";
-    print "<br>";
 
 		while($row = $query->fetch_assoc())
 		{
-      print "<br>";
+			?>
+			<p style="text-align:left;border:2px solid black;border-radius: 5px;padding-left:20px;
+				width:50%;margin-left:26%;font-family:impact;font-size:120%;color:black;">
+
+			<?php
       echo "Course name: ".$row['course_name'];
 			echo ", Course ID: ".$row['id'];
       echo ", Course title: ".$row['title'];
@@ -38,7 +55,7 @@
 ?>
 
 <form action=student_favourite_course_tmp.php method=POST
-        style="padding-top:80px;text-align:center;font-family:impact;font-size:120%;color:black;">
+        style="padding-top:40px;text-align:center;font-family:impact;font-size:120%;color:black;">
      Course Name: <input type=TEXT name="course_name"
         style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%";
         required><BR>
@@ -48,9 +65,6 @@
     <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:10%;"><P>
 
 	 </form>
-
-	 <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
-			 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 
 <?php
 
