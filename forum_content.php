@@ -29,7 +29,13 @@ if ($questions_query)
     echo " ".$row['day'];
     echo ", ".$row['year'];
     echo " at ".$row['hours'];
-    echo ":".$row['minutes'];
+    echo ":";
+    if(strlen((string)$row['minutes']) == 1) {
+      echo "0".$row['minutes'];
+    }
+    else {
+      echo $row['minutes'];
+    }
     print"<br>";
 
   $sql3 = "Select * from answer where course_name = '".$_SESSION['c_name']."' AND course_id = ".$_SESSION['c_id']." AND q_id = ".$row['q_id'];
@@ -50,7 +56,13 @@ if ($questions_query)
       echo " ".$row2['day'];
       echo ", ".$row2['year'];
       echo " at ".$row2['hours'];
-      echo ":".$row2['minutes'];
+      echo ":";
+      if(strlen((string)$row2['minutes']) == 1) {
+        echo "0".$row2['minutes'];
+      }
+      else {
+        echo $row2['minutes'];
+      }
 
     }
     ?>

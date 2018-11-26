@@ -63,11 +63,15 @@ session_start();
 					echo $row2['day'];
 					echo ",&nbsp;&nbsp;";
 					echo $row2['year'];
-					echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+					echo "&nbsp;&nbsp;&nbsp;&nbsp;";
 					echo $row2['hours'];
 					echo ":";
-					echo $row2['minute'];
-					print "<br>";
+          if(strlen((string)$row2['minute']) == 1) {
+            echo "0".$row2['minute']."&nbsp;&nbsp;";
+          }
+          else {
+            echo $row2['minute']."&nbsp;&nbsp;";
+          }
 
 					echo "Course: ";
 					echo $row2['course_name'];
