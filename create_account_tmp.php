@@ -1,7 +1,7 @@
 <?php
   ob_start();
 	session_start();
-
+  
   $first_name = $_POST['first_name'];
   $last_name = $_POST['last_name'];
   $year_of_study = $_POST['year_of_study'];
@@ -52,9 +52,9 @@
 	$query = $conn->query($sql);
   }
 
-	
+
 	$_SESSION['user_email'] = $user_email;
 	$_SESSION['password'] = $password;
-	
+
   header("Location:process_form.php");
 ?>

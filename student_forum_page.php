@@ -9,7 +9,7 @@ session_start();
 <body style="background-color:crimson;">
 		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 				height="100", width="300"></p>
-		<input type="button" value="Back to Select A Course Page" onclick="history.go(-1);"
+		<input type="button" value="Back to Select A Course Page" onclick="location='student_select_course.php'"
 						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
 
 <?php
@@ -56,13 +56,6 @@ iframe {
 
  <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
  		style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
-
-<!--<?php
-	if ($answer_unvalid == TRUE){
-		$_SESSION['answer_unvalid'] = FALSE;
-		echo "<script type='text/javascript'>alert('The question ID was not valid, please try again...')</script>";
-	}
- ?>-->
 
 </body>
 </html>

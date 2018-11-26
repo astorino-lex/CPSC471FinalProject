@@ -38,9 +38,14 @@
       Degree Program 2: <input type=TEXT name="degree_program2" minlength="3"
           placeholder="(not required)"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:18%;"><P>
-      <input type=SUBMIT value="Create Account" style="font-family:impact;font-size:90%;width:15%;"><P>
+      <input type=SUBMIT value="Create Account" onclick="myFunction()"
+      style="font-family:impact;font-size:90%;width:15%;"><P>
 
-
+        <script>
+        function myFunction() {
+            confirm("Press a button!");
+        }
+        </script>
 
   </body>
 </html>
