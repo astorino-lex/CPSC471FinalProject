@@ -20,6 +20,9 @@
 
 	<?php
 	$admin_name = $_SESSION['user_email'];
+	$course_unvalid = $_SESSION['course_unvalid'];
+
+
 	$sql = "Select * from course where user_email = '".$admin_name."'";
 
 
@@ -31,7 +34,7 @@
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 	$query = $conn->query($sql);
-	if($query)
+	if($query->num_rows >0)
 	{
 		$counter  = 0;
 		while($row = $query->fetch_assoc())
@@ -50,9 +53,15 @@
 			$counter = $counter + 1;
 		}
 	}
+
+	if ($course_unvalid == TRUE){
+		$_SESSION['course_unvalid'] = FALSE;
+		echo "<script type='text/javascript'>alert('You entered a course you are not authorized to manage, or does not exist, please try again.')
+		window.location = 'admin_select_course.php';</script>";
+	}
 	?>
 
-	<form action=admin_course_page.php method=POST
+	<form action=admin_select_course_tmp.php method=POST
           style="text-align:center;font-family:impact;font-size:120%;color:black;">
   	   Course Name: <input type=TEXT name="course_name" minlength="4" maxlength="4"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"

@@ -21,6 +21,8 @@
 
 	<?php
 	$student_name = $_SESSION['studentname'];
+	$course_unvalid = $_SESSION['course_unvalid'];
+
 	$sql = "Select * from favourites where user_email = '".$student_name."'";
 
 
@@ -49,8 +51,6 @@
 			$counter = $counter + 1;
 			?>
 
-
-
 			<?php
 
 		}
@@ -61,9 +61,16 @@
 		echo "<script type='text/javascript'>alert('You have not favourited any courses yet!')
 			window.location = 'process_form.php';</script>";
 	}
+
+
+	if ($course_unvalid == TRUE){
+		$_SESSION['course_unvalid'] = FALSE;
+		echo "<script type='text/javascript'>alert('The course entered was either not favourited yet, or does not exist, please try again.')
+		window.location = 'student_select_course.php';</script>";
+	}
 	?>
 
-	<form action=student_course_page.php method=POST
+	<form action=student_select_course_tmp.php method=POST
           style="padding-top:40px;text-align:center;font-family:impact;font-size:120%;color:black;">
   	   Course Name: <input type=TEXT name="course_name"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
@@ -71,6 +78,5 @@
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
   	  <input type=SUBMIT value="Select Course" style="font-family:impact;font-size:90%;width:10%;"><P>
 	   </form>
-
 
 </html>

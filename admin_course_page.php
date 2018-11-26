@@ -33,8 +33,8 @@
 				</style>
 
 <?php
-	$course_name  = $_POST['course_name'];
-	$course_id  = $_POST['course_id'];
+	$course_name  = $_SESSION['c_name'];
+	$course_id  =   $_SESSION['c_id'];
 
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471Project";
@@ -47,12 +47,13 @@
 
 	$query = $conn->query($sql);
 
-	if($query)
+	if($query->num_rows >0)
 	{
 		?>
 		<p style="text-align:left;margin-left:15%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;">
 		<?php
-		echo $course_name."&nbsp;";
+		echo strtoupper($course_name);
+		echo "&nbsp;";
 		echo $course_id."&nbsp;&nbsp;";
 		while($row = $query->fetch_assoc())
 		{

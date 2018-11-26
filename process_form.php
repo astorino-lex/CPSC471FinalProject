@@ -91,6 +91,7 @@ session_start();
 					// is an admin
 
 					$_SESSION['adminname'] = $name;
+          $_SESSION['course_unvalid'] = FALSE;
 
 					?>
           <input type="button" value="Add Course" onclick="location='admin_add_course.php'"
@@ -112,6 +113,7 @@ session_start();
           $_SESSION['favourite_exists'] = FALSE;
           $_SESSION['favourite_checker'] = FALSE;
           $_SESSION['answer_unvalid'] = FALSE;
+          $_SESSION['course_unvalid'] = FALSE;
 
 					?>
           <input type="button" value="Select Course" onclick="location='student_select_course.php'"
