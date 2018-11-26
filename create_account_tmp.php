@@ -1,7 +1,7 @@
 <?php
   ob_start();
 	session_start();
-  
+
   $first_name = $_POST['first_name'];
   $last_name = $_POST['last_name'];
   $year_of_study = $_POST['year_of_study'];
@@ -40,13 +40,13 @@
 
 	$query = $conn->query($sql);
 
-  if (isset($degree_program2)) {
+  if (strlen($degree_program2) >= 1) {
     $sql = "Insert into student_degree_programs (user_email, degree_program)";
     $sql = $sql."values('".$user_email."', '".$degree_program2."');";
 	$query = $conn->query($sql);
   }
 
-  if (isset($faculty2)) {
+  if (strlen($faculty2) >= 1) {
     $sql = "Insert into student_facultys (user_email, faculty)";
     $sql = $sql."values('".$user_email."', '".$faculty2."');";
 	$query = $conn->query($sql);
