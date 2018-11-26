@@ -1,67 +1,32 @@
+<?php
+session_start();
+ ?>
+
 <html>
-<body>
+<head>
+	 <title>Course Forum Page</title>
+</head>
+<body style="background-color:crimson;">
+		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
+				height="100", width="300"></p>
+		<input type="button" value="Back to Select A Course Page" onclick="history.go(-1);"
+						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
 
 <?php
 
-	session_start();
-
 	$answer_unvalid = $_SESSION['answer_unvalid'];
-
-	print "<h3>";
-	echo strtoupper($_SESSION['c_name']." ");
+	?>
+	<p style="text-align:left;margin-left:15%;font-family:impact;font-size:120%;color:black;">
+	<?php
+	echo strtoupper($_SESSION['c_name']);
+	echo "&nbsp";
 	echo $_SESSION['c_id'];
-	print"<br>";
-	print"<br>";
-	print"<br>";
-	print "</h3>";
+	echo "&nbspForum:"
+	?>
+</p>
+	<iframe  scrolling="yes" src="forum_content.php" width="90%" height="60%" style="margin-left:5%;overflow: scroll;">
 
-	$servername = "localhost";
-	$databasename = "cpsc471Project";
-	$username = "dylan";
-	$password = "password";
-
-	$conn = new mysqli($servername, $username, $password, $databasename);
-
-  $sql2 = "Select * from question where course_name = '".$_SESSION['c_name']."' AND course_id = ".$_SESSION['c_id'];
-  $questions_query = $conn->query($sql2);
-
-  if ($questions_query)
-  {
-    while($row = $questions_query->fetch_assoc())
-		{
-      echo "Question id - ".$row['q_id'].": ".$row['content'];
-      print"<br>";
-      echo "Posted on: ".$row['month'];
-      echo " ".$row['day'];
-      echo ", ".$row['year'];
-      echo " at ".$row['hours'];
-      echo ":".$row['minutes'];
-      print"<br>";
-
-      $sql3 = "Select * from answer where course_name = '".$_SESSION['c_name']."' AND course_id = ".$_SESSION['c_id']." AND q_id = ".$row['q_id'];
-      $answers_query = $conn->query($sql3);
-
-      if ($answers_query)
-      {
-        while($row2 = $answers_query->fetch_assoc())
-    		{
-          echo "Answer: ".$row2['content'];
-          print"<br>";
-          echo "Posted on: ".$row2['month'];
-          echo " ".$row2['day'];
-          echo ", ".$row2['year'];
-          echo " at ".$row2['hours'];
-          echo ":".$row2['minutes'];
-          print"<br>";
-          print"<br>";
-          print"<br>";
-        }
-      }
-    }
-  }
-
-?>
-
+	</iframe>
 <form action=student_question_tmp_page.php method=POST
       style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
    Question: <input type=TEXT name="question"
@@ -82,13 +47,13 @@
 
  <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
  		style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
-			
-<?php
+
+<!--<?php
 	if ($answer_unvalid == TRUE){
 		$_SESSION['answer_unvalid'] = FALSE;
 		echo "<script type='text/javascript'>alert('The question ID was not valid, please try again...')</script>";
 	}
- ?>
+ ?>-->
 
 </body>
 </html>
