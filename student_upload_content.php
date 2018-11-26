@@ -17,8 +17,10 @@
       $file_size =$_FILES['image']['size'];
       $file_tmp =$_FILES['image']['tmp_name'];
       $file_type=$_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-
+     // $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+		$file_ext=explode('.',$_FILES['image']['name']);
+		$file_ext = end($file_ext);
+		$file_ext = strtolower($file_ext);
       $expensions= array("jpeg","jpg","png");
 
       if(in_array($file_ext,$expensions)=== false){
