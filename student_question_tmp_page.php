@@ -1,7 +1,11 @@
+<?php
+	ob_start();
+	session_start();
+ ?>
+
 <html>
 
 <?php
-	session_start();
 	$student_email = $_SESSION['studentname'];
 
 	$question = $_POST['question'];

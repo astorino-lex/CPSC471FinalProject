@@ -34,7 +34,7 @@
 		?>
 		<p style="text-align:left;margin-left:15%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;">
 		<?php
-		echo $course_name."&nbsp;";
+		echo strtoupper($course_name."&nbsp;");
 		echo $course_id."&nbsp;&nbsp;";
 		while($row = $query->fetch_assoc())
 		{

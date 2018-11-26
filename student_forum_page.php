@@ -24,7 +24,16 @@ session_start();
 	echo "&nbspForum:"
 	?>
 </p>
-	<iframe  scrolling="yes" src="forum_content.php" width="90%" height="60%" style="margin-left:5%;overflow: scroll;">
+<style>
+iframe {
+    overflow: scroll;
+    width: 90%;
+    height: 60%;
+    border: 1px solid black;
+		margin-left: 5%
+}
+</style>
+	<iframe src="forum_content.php">
 
 	</iframe>
 <form action=student_question_tmp_page.php method=POST

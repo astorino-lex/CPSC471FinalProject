@@ -1,8 +1,11 @@
+<?php
+ob_start();
+session_start();
+ ?>
+
 <html>
 
 <?php
-
-	session_start();
   $student_name = $_SESSION['studentname'];
   $course_exists = $_SESSION['course_exists'];
   $fav_exists = $_SESSION['favourite_exists'];

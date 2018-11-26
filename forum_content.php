@@ -31,11 +31,6 @@ if ($questions_query)
     echo " at ".$row['hours'];
     echo ":".$row['minutes'];
     print"<br>";
-    ?>
-  </p>
-  <p style="text-align:left;border:1px solid black;border-radius: 3px;padding-left:2px;
-    width:40%;margin-left:30%;font-family:impact;font-size:100%;color:black;">
-  <?php
 
   $sql3 = "Select * from answer where course_name = '".$_SESSION['c_name']."' AND course_id = ".$_SESSION['c_id']." AND q_id = ".$row['q_id'];
   $answers_query = $conn->query($sql3);
@@ -44,6 +39,11 @@ if ($questions_query)
   {
     while($row2 = $answers_query->fetch_assoc())
     {
+      ?>
+    </p>
+    <p style="text-align:left;border:1px solid black;border-radius: 3px;padding-left:2px;
+      width:40%;margin-left:30%;font-family:impact;font-size:100%;color:black;">
+    <?php
       echo "Answer: ".$row2['content'];
       print"<br>";
       echo "Posted on: ".$row2['month'];
@@ -53,15 +53,19 @@ if ($questions_query)
       echo ":".$row2['minutes'];
 
     }
+    ?>
+  </p>
+  <?php
   }
 }
 }
 if ($answer_unvalid == TRUE){
   $_SESSION['answer_unvalid'] = FALSE;
-  echo "<script type='text/javascript'>alert('The question ID was not valid, please try again...')</script>";
+  echo "<script type='text/javascript'>alert('The question ID was not valid, please try again.')
+  window.location = 'student_forum_page.php';</script>";
 }
 
 ?>
-</p>
+
 </body>
 </html>

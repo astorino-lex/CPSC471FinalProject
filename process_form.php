@@ -75,8 +75,8 @@ session_start();
 
 			if($founduser == false)
 			{
-				echo "Couldn't find your account!";
-        //probably need to make this a popup
+        echo "<script type='text/javascript'>alert('Account not found. Please check your email and password or create account!')
+         window.location = 'login_page.php';</script>";
 			}
 			else
 			{

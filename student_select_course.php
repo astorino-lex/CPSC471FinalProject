@@ -58,7 +58,8 @@
 	else{
 		print "<br>";
 		echo "No courses to display yet...";
-		echo "<script type='text/javascript'>alert('You have not favourited any courses yet!')</script>";
+		echo "<script type='text/javascript'>alert('You have not favourited any courses yet!')
+			window.location = 'process_form.php';</script>";
 	}
 	?>
 
