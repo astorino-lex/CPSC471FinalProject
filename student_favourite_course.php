@@ -108,7 +108,7 @@
       $_SESSION['favourite_checker'] = FALSE;
       $_SESSION['course_exists'] = FALSE;
       echo "<script type='text/javascript'>alert('The course entered does not exist!')
-				student_favourite_course</script>";
+					window.location = 'student_favourite_course.php';</script>";
     }
   }
 ?>

@@ -7,7 +7,7 @@
     <p style="text-align:center;padding-top:75px"><image src="logo.png" class="img-responsive" alt="centered image"></p>
     <p style="text-align:center;padding-top:50px;font-family:impact;font-size:120%;color:black;">
         Get started with KickstartU,<BR> create an account!</p>
-    <form action=create_account_tmp.php method=POST
+    <form action="create_account_tmp.php" method=POST onsubmit="myFunction(event)"
         style="padding-top:5px;text-align:center;font-family:impact;font-size:120%;color:black;">
       First Name: <input type=TEXT name="first_name"
         style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:15%;"
@@ -38,12 +38,21 @@
       Degree Program 2: <input type=TEXT name="degree_program2" minlength="3"
           placeholder="(not required)"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:18%;"><P>
-      <input type=SUBMIT value="Create Account" onclick="myFunction()"
+      <input type=SUBMIT value="Create Account" 
       style="font-family:impact;font-size:90%;width:15%;"><P>
 
-        <script>
-        function myFunction() {
-            confirm("Press a button!");
+        <script type="text/javascript">
+        function myFunction(event) {
+          var a = confirm("By clicking OK, you are agreeing to KickstartU's following Terms & Conditions:" +
+            " We are not responsible for any academic misconduct or plagiarism as we are not affiliated with any University" +
+            " listed on our website. Please post at your own risk.");
+          if (a){
+            window.location.href = 'create_account_tmp.php';
+          }
+          else {
+            event.preventDefault();
+            window.location.href = 'create_account.php';
+          }
         }
         </script>
 
