@@ -12,7 +12,7 @@
 		<body style="background-color:crimson;">
 			<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 						height="100", width="300"></p>
-				<input type="button" value="Back to Home Page" onclick="history.go(-1);"
+				<input type="button" value="Back to Home Page" onclick="history.back();"
 						style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 							<p style="text-align:left;margin-left:20%;font-family:impact;font-size:120%;color:black;">
 										Select A Course:
@@ -23,7 +23,7 @@
 	$student_name = $_SESSION['studentname'];
 	$course_unvalid = $_SESSION['course_unvalid'];
 
-	$sql = "Select * from favourites where user_email = '".$student_name."'";
+	$sql = "Select * from favourites where user_email = '".$student_name."';";
 
 
 	$servername = "127.0.0.1";
@@ -58,7 +58,7 @@
 	else{
 		print "<br>";
 		echo "No courses to display yet...";
-		echo "<script type='text/javascript'>alert('You have not favourited any courses yet!')
+		echo "<script type='text/javascript'>alert('You have not favorited any courses yet!')
 			window.location = 'process_form.php';</script>";
 	}
 

@@ -155,7 +155,7 @@ CREATE TABLE `course` (
   `title` varchar(45) DEFAULT NULL,
   `semester` varchar(45) DEFAULT NULL,
   `user_email` varchar(45) DEFAULT NULL,
-  `forum_id` int(11) NOT NULL,
+  `forum_id` int(11) NOT NULL AUTO_INCREMENT,
   `num_questions` int(11) DEFAULT '0',
   `num_answers` int(11) DEFAULT '0',
   PRIMARY KEY (`course_name`,`id`),
