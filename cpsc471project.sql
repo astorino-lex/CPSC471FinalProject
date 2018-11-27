@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cpsc471project
 -- ------------------------------------------------------
--- Server version	5.7.21-log
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ SET NAMES utf8mb4 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `admin` (
   `user_email` varchar(45) NOT NULL,
   PRIMARY KEY (`user_email`)
@@ -44,7 +44,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `admin_notifications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `admin_notifications` (
   `notification_id` int(11) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -68,12 +68,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `answer` (
+  `a_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_id` int(11) NOT NULL,
   `course_name` varchar(45) NOT NULL,
   `q_id` int(11) NOT NULL,
-  `a_id` int(11) NOT NULL AUTO_INCREMENT,
   `stud_name` varchar(45) DEFAULT NULL,
   `content` varchar(200) DEFAULT NULL,
   `hours` int(2) DEFAULT NULL,
@@ -81,9 +81,8 @@ CREATE TABLE `answer` (
   `day` int(2) DEFAULT NULL,
   `month` varchar(10) DEFAULT NULL,
   `year` int(2) DEFAULT NULL,
-  PRIMARY KEY (`course_id`,`course_name`,`q_id`,`a_id`),
-  UNIQUE KEY `a_id_UNIQUE` (`a_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`a_id`,`course_id`,`course_name`,`q_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +91,7 @@ CREATE TABLE `answer` (
 
 LOCK TABLES `answer` WRITE;
 /*!40000 ALTER TABLE `answer` DISABLE KEYS */;
-INSERT INTO `answer` VALUES (471,'CPSC',2,1,'Amazing','There is no final exam in this class...',5,54,8,'10',2018);
+INSERT INTO `answer` VALUES (1,471,'CPSC',2,'Amazing','There is no final exam in this class...',5,54,8,'October',2018);
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,12 +101,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `assign_help`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `assign_help` (
   `content_id` int(11) NOT NULL,
   `content_title` varchar(45) NOT NULL,
-  `assign_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`content_id`,`content_title`)
+  `assign_num` int(11) AUTO_INCREMENT,
+  PRIMARY KEY (`assign_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -126,7 +125,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `bans`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `bans` (
   `admin_email` varchar(45) NOT NULL,
   `stud_email` varchar(45) NOT NULL,
@@ -149,7 +148,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `course` (
   `course_name` varchar(45) NOT NULL,
   `id` int(11) NOT NULL,
@@ -180,18 +179,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `course_content`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `course_content` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `format` varchar(45) DEFAULT NULL,
   `report_status` tinyint(4) DEFAULT NULL,
   `user_email` varchar(45) DEFAULT NULL,
-  `approval_status` tinyint(4) DEFAULT NULL,
+  `approval_status` tinyint(4) DEFAULT '0',
   `course_id` int(11) DEFAULT NULL,
   `course_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`,`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +208,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `course_profs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `course_profs` (
   `course_name` varchar(45) NOT NULL,
   `course_id` int(11) NOT NULL,
@@ -234,7 +233,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `downloads`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `downloads` (
   `user_email` varchar(45) NOT NULL,
   `content_id` int(11) NOT NULL,
@@ -258,7 +257,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `end_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `end_user` (
   `user_email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -284,7 +283,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `favourites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `favourites` (
   `course_id` int(11) NOT NULL,
   `course_name` varchar(45) NOT NULL,
@@ -310,12 +309,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lab_help`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `lab_help` (
   `content_id` int(11) NOT NULL,
   `content_title` varchar(45) NOT NULL,
-  `lab_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`content_id`,`content_title`)
+  `lab_num` int(11) AUTO_INCREMENT,
+  PRIMARY KEY (`lab_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -334,12 +333,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `lecture_help`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `lecture_help` (
   `content_id` int(11) NOT NULL,
   `content_title` varchar(45) NOT NULL,
-  `lecture_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`content_title`,`content_id`)
+  `lecture_num` int(11) AUTO_INCREMENT,
+  PRIMARY KEY (`lecture_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -358,7 +357,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `notification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `notification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message` varchar(100) DEFAULT NULL,
@@ -372,7 +371,8 @@ CREATE TABLE `notification` (
   `course_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `course_name_idx` (`course_name`)
+  KEY `course_name_idx` (`course_name`),
+  KEY `course_id_idx` (`course_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -392,7 +392,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `posts_on`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `posts_on` (
   `course_id` int(11) NOT NULL,
   `course_name` varchar(45) NOT NULL,
@@ -419,12 +419,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `practice_problems`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `practice_problems` (
   `content_id` int(11) NOT NULL,
   `content_title` varchar(45) NOT NULL,
   `tyoe` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`content_title`,`content_id`)
+  `id` int(11) AUTO_INCREMENT,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -443,11 +444,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `question` (
+  `q_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_id` int(11) NOT NULL,
   `course_name` varchar(45) NOT NULL,
-  `q_id` int(11) NOT NULL,
   `content` varchar(200) DEFAULT NULL,
   `stud_name` varchar(45) DEFAULT NULL,
   `hours` int(2) DEFAULT NULL,
@@ -455,8 +456,8 @@ CREATE TABLE `question` (
   `day` int(2) DEFAULT NULL,
   `month` varchar(10) DEFAULT NULL,
   `year` int(2) DEFAULT NULL,
-  PRIMARY KEY (`course_id`,`course_name`,`q_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`q_id`,`course_id`,`course_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -465,7 +466,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (471,'CPSC',3,'That does ERD stand for?','Amazing',12,2,10,'28',2018),(480,'CPSC',2,'When is the final exam?','Tired',2,15,30,'9',2018),(480,'ENSF',1,'When is the final exam?','Amazing',4,24,14,'11',2018);
+INSERT INTO `question` VALUES (1,480,'ENSF','When is the final exam?','Amazing',4,24,14,'October',2018),(2,471,'CPSC','When is the final exam?','Tired',2,15,30,'September',2018),(3,471,'CPSC','What does ERD stand for?','Amazing',12,20,10,'November',2018);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -475,7 +476,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rating_feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `rating_feedback` (
   `user_email` varchar(45) NOT NULL,
   `content_id` int(11) NOT NULL,
@@ -501,7 +502,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `recieves`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `recieves` (
   `notification_id` int(11) NOT NULL,
   `user_email` varchar(45) NOT NULL,
@@ -526,7 +527,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `student` (
   `user_email` varchar(45) NOT NULL,
   `year_of_study` int(2) DEFAULT NULL,
@@ -550,7 +551,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `student_degree_programs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `student_degree_programs` (
   `user_email` varchar(45) NOT NULL,
   `degree_program` varchar(45) NOT NULL,
@@ -574,7 +575,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `student_facultys`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `student_facultys` (
   `user_email` varchar(45) NOT NULL,
   `faculty` varchar(45) NOT NULL,
@@ -598,7 +599,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `student_notifications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `student_notifications` (
   `notification_id` int(11) NOT NULL,
   `email_list` varchar(500) NOT NULL,
@@ -622,7 +623,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `uploads`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `uploads` (
   `user_email` varchar(45) NOT NULL,
   `content_id` int(11) NOT NULL,
@@ -654,4 +655,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-15 18:20:34
+-- Dump completed on 2018-11-26 21:52:52
