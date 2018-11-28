@@ -50,15 +50,19 @@ session_start();
 		$result = $conn->query($sql);
 
 		$founduser = false;
-
+    $bannedUser = false;
 		if($result->num_rows > 0)
 		{
 			while($row = $result->fetch_assoc()){
 				if($row['user_email'] == $name)
 				{
-					if($pass == $row['password'])
+          $sqlBan = "SELECT * from bans WHERE stud_email = '".$name."'";
+      		$resultBanned = $conn->query($sqlBan);
+          if ($resultBanned->num_rows > 0){
+            $bannedUser = true;
+          }
+					if($pass == $row['password'] && $bannedUser == false )
 					{
-
           ?>
             <p style="text-align:left;margin-left:15%;padding-bottom:20px;font-family:impact;font-size:120%;color:black;">
                   Logged in as:
@@ -73,11 +77,15 @@ session_start();
 				}
 			}
 
-			if($founduser == false)
+			if($founduser == false  && $bannedUser == false)
 			{
         echo "<script type='text/javascript'>alert('Account not found. Please check your email and password or create account!')
          window.location = 'login_page.php';</script>";
 			}
+      elseif($bannedUser == true){
+        echo "<script type='text/javascript'>alert('Account has been banned. Contact administration to get your account reinstated.')
+         window.location = 'login_page.php';</script>";
+      }
 			else
 			{
 				// Check if admin or student
