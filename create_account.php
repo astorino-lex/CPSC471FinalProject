@@ -7,6 +7,7 @@
     <p style="text-align:center;padding-top:75px"><image src="logo.png" class="img-responsive" alt="centered image"></p>
         <input type="button" value="Back To Login" onclick="location='login_page.php'"
               style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
+    <p style="text-align:center;padding-top:30px;font-family:impact;font-size:120%;color:black;">
         Get started with KickstartU,<BR> create an account!</p>
     <form action="create_account_tmp.php" method=POST onsubmit="myFunction(event)"
         style="padding-top:5px;text-align:center;font-family:impact;font-size:120%;color:black;">
