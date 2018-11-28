@@ -5,7 +5,8 @@
 
   <body style="background-color:crimson;">
     <p style="text-align:center;padding-top:75px"><image src="logo.png" class="img-responsive" alt="centered image"></p>
-    <p style="text-align:center;padding-top:50px;font-family:impact;font-size:120%;color:black;">
+        <input type="button" value="Back To Login" onclick="location='login_page.php'"
+              style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
         Get started with KickstartU,<BR> create an account!</p>
     <form action="create_account_tmp.php" method=POST onsubmit="myFunction(event)"
         style="padding-top:5px;text-align:center;font-family:impact;font-size:120%;color:black;">
@@ -40,9 +41,6 @@
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:18%;"><P>
       <input type=SUBMIT value="Create Account"
       style="font-family:impact;font-size:90%;width:15%;"><P>
-
-      <input type="button" value="Back to login" onclick="location='login_page.php'"
-            style="margin-right: 60%;font-family:impact;font-size:90%;width:15%;"/><P>
 
 
         <script type="text/javascript">

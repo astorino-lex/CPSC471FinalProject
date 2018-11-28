@@ -112,7 +112,7 @@ session_start();
 					<input type="button" value="View Notifications" onclick="location='admin_notifications.php'"
                 style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<input type="button" value="Ban Students" onclick="location='admin_ban_student_page.php'"
-                style="margin-left: 40%;padding-bottom: 20px;font-family:impact;font-size:90%;width:15%;"/><P>
+                style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
           <input type="button" value="Logout" onclick="location='login_page.php'"
                 style="padding-top: 20px; margin-left: 15%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<?php
@@ -134,7 +134,7 @@ session_start();
           <input type="button" value="Favourite Course" onclick="location='student_favourite_course.php'"
               style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 					<input type="button" value="View Notifications" onclick="location='student_notifications.php'"
-              style="margin-left: 40%;padding-bottom: 20px;font-family:impact;font-size:90%;width:15%;"/><P>
+              style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
           <input type="button" value="Logout" onclick="location='login_page.php'"
               style="margin-left: 15%;font-family:impact;font-size:90%;width:15%;"/><P>
 
