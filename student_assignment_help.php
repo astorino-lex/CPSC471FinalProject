@@ -20,7 +20,14 @@
 		
 		<?php
 		
-		
+		$servername = "127.0.0.1";
+		$databasename = "cpsc471Project";
+		$username = "dylan";
+		$password = "password";
+
+		$conn = new mysqli($servername, $username, $password, $databasename);
+
+
 		
 		?>
 		
