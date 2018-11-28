@@ -251,29 +251,29 @@ if(isset($_FILES['lecture'])){
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
           Assignment help
         </p>
-         <input type="file" name="assignment" style="margin-left:2%;"/>
-         <input type="submit"/>
+         <input type="file" name="assignment" style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
 	         Lab help
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lab"  style="margin-left:2%;"/>
-         <input type="submit"/>
+         <input type="file" name="lab"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
 	         Lecture Notes
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lecture"  style="margin-left:2%;"/>
-         <input type="submit"/>
+         <input type="file" name="lecture"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
 	         Practice Problems
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="practiceproblems"  style="margin-left:2%;"/>
-         <input type="submit"/>
+         <input type="file" name="practiceproblems"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="submit" style="width:8%;font-family:impact;"/>
       </form>
 
 
