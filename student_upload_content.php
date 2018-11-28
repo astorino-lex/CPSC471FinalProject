@@ -10,7 +10,7 @@ session_start();
   <body style="background-color:crimson;">
     <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
         height="100", width="300"></p>
-        <input type="button" value="Back To Login" onclick="location='login_page.php'"
+        <input type="button" value="Back To Course Page" onclick="location='student_course_page.php'"
               style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
 
 <?php
@@ -251,28 +251,28 @@ if(isset($_FILES['lecture'])){
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
           Assignment help
         </p>
-         <input type="file" name="assignment" style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="file" name="assignment" style="margin-left:2%;font-family:impact;"/>
          <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
-	         Lab help
+	         Lab Help
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lab"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="file" name="lab"  style="margin-left:2%;font-family:impact;"/>
          <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
 	         Lecture Notes
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lecture"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="file" name="lecture"  style="margin-left:2%;font-family:impact;"/>
          <input type="submit" style="width:8%;"/>
       </form>
         <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
 	         Practice Problems
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="practiceproblems"  style="margin-left:2%;font-family:impact;font-size:70%;"/>
+         <input type="file" name="practiceproblems"  style="margin-left:2%;font-family:impact;"/>
          <input type="submit" style="width:8%;font-family:impact;"/>
       </form>
 

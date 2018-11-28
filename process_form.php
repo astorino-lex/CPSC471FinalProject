@@ -146,7 +146,7 @@ session_start();
 
 		}
 		else{
-      echo <br>;
+      	print "<br>";
 		}
 
 

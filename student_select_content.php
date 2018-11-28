@@ -7,7 +7,7 @@
 <html>
 	<body>
 		<title>
-			Select Content
+			KickstartU Select Content
 		</title>
 	</body>
 
@@ -17,12 +17,14 @@
 				<input type="button" value="Back to Home Page" onclick="location='process_form.php'"
 						style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 		</bosy>
-	<h2>
+
+		<p style="text-align:left;margin-left:20%;font-family:impact;font-size:120%;color:black;">
 	<?php
 	echo strtoupper($course_name." ");
 	echo $course_id;
+	echo "&nbsp;Available Content";
 	?>
-	</h2>
+</p>
 
 	<body>
 
