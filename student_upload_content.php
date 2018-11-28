@@ -28,7 +28,7 @@ if(isset($_FILES['lecture'])){
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
 		move_uploaded_file($file_tmp,$tmpdir.$file_name);
-		
+
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
@@ -41,9 +41,9 @@ if(isset($_FILES['lecture'])){
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-		
+
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
-		
+
 		//$query2 = $conn->query($sql2);
 		$content_id = -1;
 		if($conn->query($sql) === true)
@@ -51,11 +51,11 @@ if(isset($_FILES['lecture'])){
 			$content_id = $conn->insert_id;
 		}
 		// insert into appropriate other table for database.
-		
+
 		$sql3 = "INSERT INTO lecture_help (content_id, content_title) VALUES (".$content_id.", '".$file_name."');";
-		
+
 		$query3 = $conn ->query($sql3);
-		
+
       }else{
          print_r($errors);
       }
@@ -85,7 +85,7 @@ if(isset($_FILES['lecture'])){
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
 		move_uploaded_file($file_tmp,$tmpdir.$file_name);
-		
+
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
@@ -98,9 +98,9 @@ if(isset($_FILES['lecture'])){
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-		
+
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
-		
+
 		//$query2 = $conn->query($sql2);
 		$content_id = -1;
 		if($conn->query($sql) === true)
@@ -108,11 +108,11 @@ if(isset($_FILES['lecture'])){
 			$content_id = $conn->insert_id;
 		}
 		// insert into appropriate other table for database.
-		
+
 		$sql3 = "INSERT INTO lab_help (content_id, content_title) VALUES (".$content_id.", '".$file_name."');";
-		
+
 		$query3 = $conn ->query($sql3);
-		
+
       }else{
          print_r($errors);
       }
@@ -142,7 +142,7 @@ if(isset($_FILES['lecture'])){
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
 		move_uploaded_file($file_tmp,$tmpdir.$file_name);
-		
+
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
@@ -155,9 +155,9 @@ if(isset($_FILES['lecture'])){
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-		
+
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
-		
+
 		//$query2 = $conn->query($sql2);
 		$content_id = -1;
 		if($conn->query($sql) === true)
@@ -165,17 +165,17 @@ if(isset($_FILES['lecture'])){
 			$content_id = $conn->insert_id;
 		}
 		// insert into appropriate other table for database.
-		
+
 		$sql3 = "INSERT INTO assign_help (content_id, content_title) VALUES (".$content_id.", '".$file_name."');";
-		
+
 		$query3 = $conn ->query($sql3);
-		
+
       }else{
          print_r($errors);
       }
    }
    if(isset($_FILES['practiceproblems'])){
-	  
+
       $errors= array();
       $file_name = $_FILES['practiceproblems']['name'];
       $file_size =$_FILES['practiceproblems']['size'];
@@ -212,9 +212,9 @@ if(isset($_FILES['lecture'])){
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-		
+
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
-		
+
 		//$query2 = $conn->query($sql2);
 		$content_id = -1;
 		if($conn->query($sql) === true)
@@ -222,11 +222,11 @@ if(isset($_FILES['lecture'])){
 			$content_id = $conn->insert_id;
 		}
 		// insert into appropriate other table for database.
-		
+
 		$sql3 = "INSERT INTO practice_problems (content_id, content_title) VALUES (".$content_id.", '".$file_name."');";
-		
+
 		$query3 = $conn ->query($sql3);
-		
+
       }else{
          print_r($errors);
       }
@@ -239,7 +239,7 @@ Upload Content
 <body style="background-color:crimson;">
 		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 				height="100", width="300"></p>
-<input type="button" value="Go back" onclick="history.go(-1);"
+<input type="button" value="Back to Home Page" onclick="location='process_form.php'"
 						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
    <body>
 	Assignment help
