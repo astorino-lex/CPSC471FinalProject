@@ -80,4 +80,22 @@ session_start();
 	   </form>
   </body>
 
+	<?php
+			if ($_SESSION['unvalid_email'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user email entered does not exist!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['unvalid_email'] = FALSE;
+			}
+			if ($_SESSION['already_banned'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user is already banned!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['already_banned'] = FALSE;
+			}
+			if ($_SESSION['not_banned'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user is active banned already!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['not_banned'] = FALSE;
+			}
+	?>
+
 </html>
