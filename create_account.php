@@ -38,8 +38,12 @@
       Degree Program 2: <input type=TEXT name="degree_program2" minlength="3"
           placeholder="(not required)"
           style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:18%;"><P>
-      <input type=SUBMIT value="Create Account" 
+      <input type=SUBMIT value="Create Account"
       style="font-family:impact;font-size:90%;width:15%;"><P>
+
+      <input type="button" value="Back to login" onclick="location='login_page.php'"
+            style="margin-right: 60%;font-family:impact;font-size:90%;width:15%;"/><P>
+
 
         <script type="text/javascript">
         function myFunction(event) {

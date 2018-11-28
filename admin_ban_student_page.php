@@ -9,7 +9,7 @@ session_start();
   <body style="background-color:crimson;">
       <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
           height="100", width="300"></p>
-		  <input type="button" value="Back to Home Page" onclick="history.go(-1);"
+		  <input type="button" value="Back to Home Page" onclick="location='process_form.php'"
 					style="margin-left: 80%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 	<?php
 
@@ -79,5 +79,23 @@ session_start();
   	  <input type=SUBMIT value="Un-Ban Student" style="font-family:impact;font-size:90%;width:80%;"><P>
 	   </form>
   </body>
+
+	<?php
+			if ($_SESSION['unvalid_email'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user email entered does not exist!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['unvalid_email'] = FALSE;
+			}
+			if ($_SESSION['already_banned'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user is already banned!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['already_banned'] = FALSE;
+			}
+			if ($_SESSION['not_banned'] == TRUE){
+				echo "<script type='text/javascript'>alert('The user is active banned already!')
+						window.location = 'admin_ban_student_page.php';</script>";
+						$_SESSION['not_banned'] = FALSE;
+			}
+	?>
 
 </html>

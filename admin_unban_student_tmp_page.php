@@ -6,8 +6,6 @@
 	$banned_user = $_POST['unban_user_email'];
 
 
-	$sql = "DELETE FROM BANS WHERE stud_email='".$banned_user."';";
-
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
 	$username = "dylan";
@@ -15,7 +13,28 @@
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
-	$query = $conn->query($sql);
+	$conn = new mysqli($servername, $username, $password, $databasename);
+
+
+	$sqlValidUser = "Select * from student where user_email = '".$banned_user."'";
+	$querycheck = $conn->query($sqlValidUser);
+
+
+	$sqlbanned = "Select * from bans where stud_email = '".$banned_user."'";
+	$querybanned = $conn->query($sqlbanned);
+
+	if ($querybanned->num_rows <= 0){
+		$_SESSION['not_banned'] = TRUE;
+	}
+
+	if ($querycheck->num_rows <= 0){
+		$_SESSION['unvalid_email'] = TRUE;
+	}
+
+	if ($_SESSION['unvalid_email'] == FALSE && $_SESSION['not_banned'] == FALSE){
+		$sql = "DELETE FROM BANS WHERE stud_email='".$banned_user."';";
+		$query = $conn->query($sql);
+	}
 
 	header("Location:admin_ban_student_page.php");
 
