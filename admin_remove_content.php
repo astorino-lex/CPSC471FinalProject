@@ -1,9 +1,8 @@
 <?php
 	ob_start();
-	$content_title = $_POST['content_title'];
+	session_start();
 	$content_id = $_POST['content_id'];
 
-	$sql = "DELETE FROM course_content WHERE title = '".$content_title."' AND id=".$content_id.";";
 
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
@@ -12,7 +11,17 @@
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
-	$conn->query($sql);
+	$sqlValidContent = "Select * from course_content where id = ".$content_id;
+	$resultCheck = $conn->query($sqlValidContent);
+
+	if ($resultCheck->num_rows <= 0){
+		$_SESSION['$invalidID'] = TRUE;
+	}
+
+	if ($_SESSION['$invalidID'] == FALSE){
+		$sql = "DELETE FROM course_content WHERE id=".$content_id.";";
+		$conn->query($sql);
+	}
 
 	header("Location:admin_course_page.php");
 

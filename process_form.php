@@ -103,6 +103,8 @@ session_start();
           $_SESSION['unvalid_email'] = FALSE;
           $_SESSION['already_banned'] = FALSE;
           $_SESSION['not_banned'] = FALSE;
+          $_SESSION['invalidID'] = FALSE;
+        	$_SESSION['approved_already'] = FALSE;
 
 					?>
           <input type="button" value="Add Course" onclick="location='admin_add_course.php'"

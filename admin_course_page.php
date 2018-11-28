@@ -124,8 +124,6 @@
           style="text-align:center;font-family:impact;font-size:100%;color:black;">
   	   Content ID: <input type=TEXT name="content_id"
           style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
-  	   Content Title: <input type=TEXT name="content_title"
-          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
   	  <input type=SUBMIT value="Approve Content" style="font-family:impact;font-size:90%;width:12%;"><P>
 	 </form>
 
@@ -138,10 +136,21 @@
           style="text-align:center;font-family:impact;font-size:100%;color:black;">
   	   Content ID: <input type=TEXT name="content_id"
           style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"><BR>
-  	   Content Title: <input type=TEXT name="content_title"
-          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:10%;"><P>
   	  <input type=SUBMIT value="Remove Content" style="font-family:impact;font-size:90%;width:12%;"><P>
 	   </form>
 
 </body>
+
+<?php
+		if ($_SESSION['approved_already'] == TRUE){
+			echo "<script type='text/javascript'>alert('That content is already approved!')
+					window.location = 'admin_course_page.php';</script>";
+					$_SESSION['approved_already'] = FALSE;
+		}
+		if ($_SESSION['$invalidID'] == TRUE){
+			echo "<script type='text/javascript'>alert('That is not a valid content ID!')
+					window.location = 'admin_course_page.php';</script>";
+					$_SESSION['$invalidID'] = FALSE;
+		}
+?>
 </html>
