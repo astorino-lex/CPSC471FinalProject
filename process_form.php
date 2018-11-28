@@ -150,7 +150,6 @@ session_start();
 		}
 
 
-		 print "<br>";
 
 		 //compare the strings
 		 //if( $name === $good_name && $pass === $good_pass){

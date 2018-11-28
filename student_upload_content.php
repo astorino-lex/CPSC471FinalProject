@@ -1,5 +1,19 @@
 <?php
 session_start();
+?>
+
+<html>
+  <head>
+	   <title>KickstartU Upload Content</title>
+  <head>
+
+  <body style="background-color:crimson;">
+    <p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
+        height="100", width="300"></p>
+        <input type="button" value="Back To Login" onclick="location='login_page.php'"
+              style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
+
+<?php
 $course_name = $_SESSION['c_name'];
 $course_id = $_SESSION['c_id'];
 $studentname = $_SESSION['studentname'];
@@ -232,34 +246,33 @@ if(isset($_FILES['lecture'])){
       }
    }
 ?>
-<html>
-<Title>
-Upload Content
-</title>
-<body style="background-color:crimson;">
-		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
-				height="100", width="300"></p>
-<input type="button" value="Back to Home Page" onclick="location='process_form.php'"
-						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
    <body>
-	Assignment help
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="assignment" />
+        <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
+          Assignment help
+        </p>
+         <input type="file" name="assignment" style="margin-left:2%;"/>
          <input type="submit"/>
       </form>
-	Lab help
+        <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
+	         Lab help
+        </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lab" />
+         <input type="file" name="lab"  style="margin-left:2%;"/>
          <input type="submit"/>
       </form>
-	Lecture Notes
+        <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
+	         Lecture Notes
+        </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="lecture" />
+         <input type="file" name="lecture"  style="margin-left:2%;"/>
          <input type="submit"/>
       </form>
-	Practice Problems
+        <p style="text-align:left;margin-left:2%;font-family:impact;font-size:120%;color:black;">
+	         Practice Problems
+        </p>
       <form action="" method="POST" enctype="multipart/form-data">
-         <input type="file" name="practiceproblems" />
+         <input type="file" name="practiceproblems"  style="margin-left:2%;"/>
          <input type="submit"/>
       </form>
 
