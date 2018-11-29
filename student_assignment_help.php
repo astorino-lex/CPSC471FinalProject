@@ -26,14 +26,14 @@
 		$password = "password";
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
-	
-	
-		
+
+
+
 		$sql = "Select a.assign_num, a.content_title, c.user_email FROM assign_help as a, course_content as c WHERE a.content_id=c.id";
-		$sql = $sql." AND a.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."';";
-		
+		$sql = $sql." AND a.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
+
 		$query = $conn->query($sql);
-		
+
 		if($query)
 		{
 			?>
@@ -58,9 +58,9 @@
 				</style>
 
 			<table>
-			
-			
-			
+
+
+
 				<thead>
 				<tr>
 					<th>Assignment ID</th>
@@ -78,14 +78,14 @@
 					<td><?php echo $row['content_title'] ?></td>
 					<td><?php echo $row['user_email'] ?></td>
 				</tr>
-				
+
 				<?php
 			}
 			?>
 			 </tbody>
 			</table>
 			</p>
-				
+
 				<form action=student_view_assignment.php method=POST
 					style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
 					Content ID: <input type=TEXT name="assign_num"
@@ -93,7 +93,7 @@
 				required><BR>
 				<input type=SUBMIT value="View Content" style="font-family:impact;font-size:90%;width:80%;">
 				</form>
-			<?php		
+			<?php
 		}
 		else
 		{
@@ -104,4 +104,3 @@
 
 
 </html>
-  
