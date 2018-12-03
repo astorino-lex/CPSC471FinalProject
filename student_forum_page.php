@@ -9,8 +9,8 @@ session_start();
 <body style="background-color:crimson;">
 		<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 				height="100", width="300"></p>
-		<input type="button" value="Back to Select A Course Page" onclick="location='student_select_course.php'"
-						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
+		<input type="button" value="Back to Course Page" onclick="location='student_course_page.php'"
+						style="margin-left: 80%;font-family:impact;font-size:90%;width:13%;color:black;"><P>
 
 <?php
 
@@ -54,8 +54,6 @@ iframe {
   <input type=SUBMIT value="Post Answer to the Question" style="font-family:impact;font-size:90%;width:80%;"><P>
  </form>
 
- <input type="button" value="Go back to homepage" onclick="location='process_form.php'"
- 		style="margin-left: 40%;font-family:impact;font-size:90%;width:15%;"/><P>
 
 </body>
 </html>
