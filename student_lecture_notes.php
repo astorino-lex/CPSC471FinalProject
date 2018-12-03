@@ -15,7 +15,7 @@ session_start();
 			<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 						height="100", width="300"></p>
 				<input type="button" value="Back to Content Page" onclick="location='student_select_content.php'"
-						style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
+						style="margin-left: 80%;font-family:impact;font-size:90%;width:13%;color:black;"><P>
 		</body>
 
 		<?php
@@ -62,7 +62,7 @@ session_start();
 
 
 				<thead>
-				<tr>
+				<tr style = "background-color: DarkRed">
 					<th>Lecture Help ID</th>
 					<th>Title</th>
 					<th>Submitted By</th>
@@ -88,7 +88,7 @@ session_start();
 
 				<form action=student_view_lecture.php method=POST
 					style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
-					Content ID: <input type=TEXT name="lecture_num"
+					Lecture Help ID: <BR><input type=TEXT name="lecture_num"
 					style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
 				required><BR>
 				<input type=SUBMIT value="View Content" style="font-family:impact;font-size:90%;width:80%;">

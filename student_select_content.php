@@ -15,7 +15,7 @@
 			<p style="text-align:right;padding-top:75px;padding-right:50px;"><image src="logo.png" class="img-responsive" alt="centered image"
 						height="100", width="300"></p>
 				<input type="button" value="Back to Course Page" onclick="location='student_course_page.php'"
-						style="margin-left: 75%;font-family:impact;font-size:90%;width:18%;color:black;"><P>
+						style="margin-left: 75%;font-family:impact;font-size:90%;width:12%;color:black;"><P>
 		</bosy>
 
 		<p style="text-align:left;margin-left:20%;font-family:impact;font-size:120%;color:black;">

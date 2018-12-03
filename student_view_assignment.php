@@ -1,4 +1,5 @@
 <?php
+	ob_start();
 	session_start();
 	$course_name = $_SESSION['c_name'];
 	$course_id = $_SESSION['c_id'];
@@ -13,7 +14,7 @@
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
 	$query = $conn->query($sql);
-	
+
 	if($query)
 	{
 		$row = $query->fetch_assoc();
@@ -24,5 +25,5 @@
 		header("Content-Disposition: inline; filename=".$title);
 		@readfile($directory);
 	}
-	
+
 	?>
