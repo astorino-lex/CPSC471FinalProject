@@ -86,13 +86,49 @@
 			</table>
 			</p>
 
+				<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
+					<u>
+					View Practice Problems
+					</u>
+				</div>
 				<form action=student_view_practice_problem.php method=POST
-					style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
-					Practice Problem ID: <BR><input type=TEXT name="practice_id"
-					style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
-				required><BR>
-				<input type=SUBMIT value="View Content" style="font-family:impact;font-size:90%;width:80%;">
-				</form>
+								style="text-align:center;text-align:center;font-family:impact;font-size:100%;color:black;">
+						 Problem ID: <input type=TEXT name="practice_id"
+								style="vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+								required><BR>
+						<input type=SUBMIT value="View Problem" style="font-family:impact;font-size:90%;width:12%;"><P>
+				 </form>
+
+				<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
+					<u>
+						Rate Practice Problems
+					</u>
+				</div>
+					 <form action=something method=POST
+								style="text-align:center;font-family:impact;font-size:100%;color:black;">
+								Problem ID: <input type=TEXT name="practice_id"
+									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+									required><BR>
+								Rating out of 5: 	<input type=TEXT name=something
+									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+									required><BR>
+						<input type=SUBMIT value="Rate Problem" style="font-family:impact;font-size:90%;width:12%;"><P>
+					 </form>
+					 <div style="padding-top:20;text-align:center;font-family:impact;font-size:120%;color:black;">
+						<u>
+							Report Practice Problems
+						</u>
+					</div>
+						 <form action=something method=POST
+									style="text-align:center;font-family:impact;font-size:100%;color:black;">
+									Problem ID: <input type=TEXT name="practice_id"
+										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+										required><BR>
+									Reason: 	<input type=TEXT name=something
+										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"
+										required><BR>
+							<input type=SUBMIT value="Report Problem" style="font-family:impact;font-size:90%;width:12%;"><P>
+						 </form>
 			<?php
 		}
 		else

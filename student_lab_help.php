@@ -86,13 +86,49 @@
 			</table>
 			</p>
 
-				<form action=student_view_lab.php method=POST
-					style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
-					Lab ID: <BR><input type=TEXT name="lab_num"
-					style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
-				required><BR>
-				<input type=SUBMIT value="View Content" style="font-family:impact;font-size:90%;width:80%;">
-				</form>
+			<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
+				<u>
+				View Lab
+				</u>
+			</div>
+			<form action=student_view_lab.php method=POST
+							style="text-align:center;text-align:center;font-family:impact;font-size:100%;color:black;">
+					 Lab ID: <input type=TEXT name="lab_num"
+							style="vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+							required><BR>
+					<input type=SUBMIT value="View Lab" style="font-family:impact;font-size:90%;width:8%;"><P>
+			 </form>
+
+			<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
+				<u>
+					Rate Lab
+				</u>
+			</div>
+				 <form action=something method=POST
+							style="text-align:center;font-family:impact;font-size:100%;color:black;">
+						 	Lab ID: <input type=TEXT name="lab_num"
+								style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+								required><BR>
+							Rating out of 5: 	<input type=TEXT name=something
+								style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+								required><BR>
+					<input type=SUBMIT value="Rate Lab" style="font-family:impact;font-size:90%;width:8%;"><P>
+				 </form>
+				 <div style="padding-top:20;text-align:center;font-family:impact;font-size:120%;color:black;">
+					<u>
+						Report Lab
+					</u>
+				</div>
+					 <form action=something method=POST
+								style="text-align:center;font-family:impact;font-size:100%;color:black;">
+								Lab ID: <input type=TEXT name="lab_num"
+									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
+									required><BR>
+								Reason: 	<input type=TEXT name=something
+									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"
+									required><BR>
+						<input type=SUBMIT value="Report Lab" style="font-family:impact;font-size:90%;width:8%;"><P>
+					 </form>
 			<?php
 		}
 		else
