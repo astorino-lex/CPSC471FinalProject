@@ -157,7 +157,7 @@ session_start();
 			{
 				$_SESSION['lecture_invalid'] = FALSE;
 				echo "<script type='text/javascript'>alert('That lecture ID does not exist, please try again!')
-				window.location = 'student_lecture_help.php';</script>";
+				window.location = 'student_lecture_notes.php';</script>";
 			}
 		 ?>
 </html>

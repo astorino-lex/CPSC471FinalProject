@@ -157,7 +157,7 @@
 			{
 				$_SESSION['practice_invalid'] = FALSE;
 				echo "<script type='text/javascript'>alert('That practice ID does not exist, please try again!')
-				window.location = 'student_practice_help.php';</script>";
+				window.location = 'student_practice_problems.php';</script>";
 			}
 		 ?>
 </html>
