@@ -27,7 +27,7 @@ if($query->num_rows > 0)
   }
   else {
 
-    $sql1 = "Select * from practice_problems where $practice_id=".$practice_id.";";
+    $sql1 = "Select * from practice_problems where practice_id=".$practice_id.";";
 
     $query = $conn->query($sql1);
 
