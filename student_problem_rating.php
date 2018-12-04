@@ -41,9 +41,18 @@ if($query->num_rows > 0)
     $sql2 = "Insert into rating_feedback (user_email, content_id, content_title, rating_out_of_5)";
     $sql2 = $sql2."values('".$user_email."', ".$content_id.", '".$title."', ".$rating_out_of_5.");";
 
-    $query = $conn->query($sql2);
-
-    header("Location:student_practice_problems.php");
+    $query2 = $conn->query($sql2);
+    if($query2)
+	{
+		//worked fine
+		echo "<script type='text/javascript'>alert('You have successfully rated this practice problem!')
+      	window.location = 'student_practice_problems.php';</script>";
+	}
+	else{
+		//user already submitted 
+		echo "<script type='text/javascript'>alert('You have already rated these practice problems!')
+      	window.location = 'student_practice_problems.php';</script>";
+	}
   }
 }
 else {
