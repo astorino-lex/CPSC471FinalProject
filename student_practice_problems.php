@@ -32,13 +32,13 @@
 		$sql = $sql." LEFT JOIN rating_feedback as r ON r.content_id = c.id AND r.content_title = c.title";
 		$sql = $sql." Where p.content_id=c.id AND p.content_title=c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND c.approval_status=1";
 		$sql = $sql." GROUP BY practice_id ORDER BY rating DESC;";
-		
+
 		//$sql = "Select p.content_id, p.practice_id, p.content_title, c.user_email FROM practice_problems as p, course_content as c WHERE p.content_id=c.id";
 		//$sql = $sql." AND p.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
 
 		$query = $conn->query($sql);
 
-		if($query)
+		if($query->num_rows > 0)
 		{
 			?>
 			<style>
@@ -97,7 +97,7 @@
 					{
 						$row2 = $query2->fetch_assoc();
 						// To get the total rating out of 5 another query must be executed
-						
+
 						$sql3 = "Select truncate(sum(rating_out_of_5)/count(*), 2) from rating_feedback where content_id=".$content_id." AND content_title='".$row['content_title']."';";
 						$query3 = $conn->query($sql3);
 						if($query3)
@@ -106,7 +106,7 @@
 							$rating = $row3['truncate(sum(rating_out_of_5)/count(*), 2)'];
 							$rating = $rating."/5";
 						}
-					 
+
 					}
 					else{
 						$rating = "Not Rated Yet";
