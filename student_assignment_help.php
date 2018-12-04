@@ -2,6 +2,9 @@
 	session_start();
 	$course_name  = $_SESSION['c_name'];
 	$course_id  = $_SESSION['c_id'];
+	
+	//if(isSet($_SESSION['rating_popup']))
+	//	echo "<script type='text/javascript'>alert('You've already rated this assignment!') window.location = 'student_assignment_help.php';</script>";
 ?>
 
 <html>
@@ -85,9 +88,22 @@
 					if($query2->num_rows > 0)
 					{
 						$row2 = $query2->fetch_assoc();
-						$rating = $row2['rating_out_of_5'];
-					 ?><td><?php echo $rating."/5" ?></td><?php
+						// To get the total rating out of 5 another query must be executed
+						
+						$sql3 = "Select truncate(sum(rating_out_of_5)/count(*), 2) from rating_feedback where content_id=".$content_id." AND content_title='".$row['content_title']."';";
+						$query3 = $conn->query($sql3);
+						if($query3)
+						{
+							$row3 = $query3->fetch_assoc();
+							$rating = $row3['truncate(sum(rating_out_of_5)/count(*), 2)'];
+							$rating = $rating."/5";
+						}
+					 
 					}
+					else{
+						$rating = "Not Rated Yet";
+					}
+					?><td><?php echo $rating ?></td><?php
 				 ?>
 
 				</tr>
@@ -117,7 +133,7 @@
 						Rate Assignment
 					</u>
 				</div>
-				   <form action=student_rating_tmp.php method=POST
+				   <form action=student_assignment_rating.php method=POST
 			          style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Assignment ID: <input type=TEXT name="assign_num"
 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"

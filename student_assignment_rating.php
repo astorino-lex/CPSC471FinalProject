@@ -38,10 +38,20 @@ if($query->num_rows > 0)
       $content_id = $row['content_id'];
     }
 
-    $sql2 = "Insert into rating_feedback (user_email, content_id, content_title, rating_out_of_5)";
+    $sql2 = "Insert into rating_feedback (user_email, content_id, content_title, rating_out_of_5) ";
     $sql2 = $sql2."values('".$user_email."', ".$content_id.", '".$title."', ".$rating_out_of_5.");";
 
-    $query = $conn->query($sql2);
+    if($conn->query($sql2)===TRUE) // ************************************************************************** HELP ME
+	{
+		//worked fine
+		echo "<script type='text/javascript'>alert('You have successfully rated this assignment')
+      	window.location = 'student_assignment_help.php';</script>";
+	}
+	else{
+		//user already submitted 
+		echo "<script type='text/javascript'>alert('You have already rated this assignment!')
+      	window.location = 'student_assignment_help.php';</script>";
+	}
 
     header("Location:student_assignment_help.php");
   }

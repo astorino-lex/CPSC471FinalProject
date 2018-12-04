@@ -376,7 +376,7 @@ CREATE TABLE `rating_feedback` (
   `content_id` int(11) NOT NULL,
   `content_title` varchar(45) NOT NULL,
   `rating_out_of_5` int(1) NOT NULL,
-  PRIMARY KEY (`user_email`,`content_id`,`content_title`,`rating_out_of_5`)
+  PRIMARY KEY (`user_email`,`content_id`,`content_title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
