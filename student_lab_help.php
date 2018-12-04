@@ -29,9 +29,14 @@
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-		$sql = "Select l.content_id, l.lab_num, l.content_title, c.user_email FROM lab_help as l, course_content as c WHERE l.content_id=c.id";
-		$sql = $sql." AND l.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
-
+		//$sql = "Select l.content_id, l.lab_num, l.content_title, c.user_email FROM lab_help as l, course_content as c WHERE l.content_id=c.id";
+		//$sql = $sql." AND l.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
+		
+		$sql = "select l.content_id, l.lab_num, l.content_title, c.user_email, truncate(sum(r.rating_out_of_5)/count(r.content_id), 2) as rating FROM lab_help as l, course_content as c";
+		$sql = $sql." LEFT JOIN rating_feedback as r ON r.content_id = c.id AND r.content_title = c.title";
+		$sql = $sql." Where l.content_id=c.id AND l.content_title=c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND c.approval_status=1";
+		$sql = $sql." GROUP BY lab_num ORDER BY rating DESC;";
+		
 		$query = $conn->query($sql);
 
 		if($query->num_rows > 0)
@@ -79,6 +84,13 @@
 					<td><?php echo $row['content_title'] ?></td>
 					<td><?php echo $row['user_email'] ?></td>
 					<?php
+					// Check is not rated
+					if(!isSet($row['rating']))
+						$rating = "Not Rated Yet";
+					else
+						$rating = $row['rating']."/5";
+					?><td><?php echo $rating ?></td><?php
+					/*
 					$content_id = $row['content_id'];
 					$sql1 = "Select * from rating_feedback where content_id=".$content_id."";
 					$query2 = $conn->query($sql1);
@@ -101,6 +113,7 @@
 						$rating = "Not Rated Yet";
 					}
 					?><td><?php echo $rating ?></td><?php
+					*/
 				 ?>
 				</tr>
 
