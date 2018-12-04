@@ -31,7 +31,7 @@
 		$sql = "select p.content_id, p.practice_id, p.content_title, c.user_email, truncate(sum(r.rating_out_of_5)/count(r.content_id), 2) as rating FROM practice_problems as p, course_content as c";
 		$sql = $sql." LEFT JOIN rating_feedback as r ON r.content_id = c.id AND r.content_title = c.title";
 		$sql = $sql." Where p.content_id=c.id AND p.content_title=c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND c.approval_status=1";
-		$sql = $sql." GROUP BY practice_num ORDER BY rating DESC;";
+		$sql = $sql." GROUP BY practice_id ORDER BY rating DESC;";
 		
 		//$sql = "Select p.content_id, p.practice_id, p.content_title, c.user_email FROM practice_problems as p, course_content as c WHERE p.content_id=c.id";
 		//$sql = $sql." AND p.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";

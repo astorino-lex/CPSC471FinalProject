@@ -94,7 +94,7 @@
 					if(!isSet($row['rating']))
 						$rating = "Not Rated Yet";
 					else
-						$rating = $row['rating']"/5";
+						$rating = $row['rating']."/5";
 					?><td><?php echo $rating ?></td><?php
 					/*
 					$content_id = $row['content_id'];
