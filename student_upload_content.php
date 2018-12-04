@@ -14,9 +14,80 @@ session_start();
               style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
 
 <?php
+$servername = "127.0.0.1";
+$databasename = "cpsc471Project";
+$username = "dylan";
+$password = "password";
+
+$conn = new mysqli($servername, $username, $password, $databasename);
+
 $course_name = $_SESSION['c_name'];
 $course_id = $_SESSION['c_id'];
 $studentname = $_SESSION['studentname'];
+
+date_default_timezone_set("Canada/Mountain");
+$day = date("d");
+$year = date("Y");
+$month = date("m");
+
+if ($month == 1){
+  $month = "January";
+}
+else if ($month == 2){
+  $month = "February";
+}
+else if ($month == 3){
+  $month = "March";
+}
+else if ($month == 4){
+  $month = "April";
+}
+else if ($month == 5){
+  $month = "May";
+}
+else if ($month == 6){
+  $month = "June";
+}
+else if ($month == 7){
+  $month = "July";
+}
+else if ($month == 8){
+  $month = "August";
+}
+else if ($month == 9){
+  $month = "September";
+}
+else if ($month == 10){
+  $month = "October";
+}
+else if ($month == 11){
+  $month = "November";
+}
+else{
+  $month = "December";
+}
+
+$hour = date("h");
+$minute = date("i");
+
+$sql2 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('approve content upload', 'approval pending', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
+$query2 = $conn->query($sql2);
+
+$sql3 = "Select * from notification WHERE course_name = '".$course_name."' AND course_id = ".$course_id." AND subject = 'approval pending' AND month = '".$month."' AND day = ".$day." AND year = ".$year." AND hours = ".$hour." AND minute = ".$minute;
+$query3 = $conn->query($sql3);
+$row = $query3->fetch_assoc();
+$notify_id = $row['id'];
+
+$sql4 = "Select * from course WHERE course_name = '".$course_name."' AND id = ".$course_id;
+$query4 = $conn->query($sql4);
+while($row4 = $query4->fetch_assoc()){
+  $sql5 = "Insert into admin_notifications (notification_id, email) values(".$notify_id.", '".$row4['user_email']."');";
+  $query5 = $conn->query($sql5);
+
+  $sql6 = "Insert into recieves (notification_id, user_email) values(".$notify_id.", '".$row4['user_email']."');";
+  $query6 = $conn->query($sql6);
+}
+
 if(isset($_FILES['lecture'])){
       $errors= array();
       $file_name = $_FILES['lecture']['name'];
@@ -45,16 +116,6 @@ if(isset($_FILES['lecture'])){
 
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
-
-
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471Project";
-		$username = "dylan";
-		$password = "password";
-
-		$conn = new mysqli($servername, $username, $password, $databasename);
-
-
 
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
 
@@ -279,14 +340,3 @@ if(isset($_FILES['lecture'])){
 
    </body>
 </html>
-<!-- <html>
-    <body>
-        <form action="student_upload_content_tmp.php" method="post"
-                                       enctype="multipart/form-data">
-            <label for="file">Select file to upload: </label>
-            <input type="file" name="uploadFile" id = "file">
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
-</html> -->
