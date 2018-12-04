@@ -82,6 +82,25 @@
 		$sql5 = "INSERT INTO posts_on	(`course_id`, `course_name`, `user_email`) VALUES (".$_SESSION['c_id'].", '".$_SESSION['c_name']."', '".$student_email."');";
 		$query5 = $conn->query($sql5);
 
+		$sql6 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('new forum post', 'forum activity', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
+		$query26= $conn->query($sql6);
+
+		$sql7 = "Select * from notification WHERE course_name = '".$course_name."' AND course_id = ".$course_id." AND subject = 'forum activity' AND month = '".$month."' AND day = ".$day." AND year = ".$year." AND hours = ".$hour." AND minute = ".$minute;
+		$query7 = $conn->query($sql7);
+		$row = $query3->fetch_assoc();
+		$notify_id = $row['id'];
+
+		$sql8 = "Select * from course WHERE course_name = '".$course_name."' AND id = ".$course_id;
+		$query8 = $conn->query($sql8);
+		while($row4 = $query4->fetch_assoc()){
+			//NEEDS TO BE FIXED FOR STUDENT
+		  $sql9 = "Insert into student_notifications (notification_id, email) values(".$notify_id.", '".$row4['user_email']."');";
+		  $query9 = $conn->query($sql9);
+
+		  $sql10 = "Insert into recieves (notification_id, user_email) values(".$notify_id.", '".$row4['user_email']."');";
+		  $query10 = $conn->query($sql10);
+		}
+
 	}
 
 	header("Location:student_forum_page.php");
