@@ -120,7 +120,7 @@
 	 						Report Assignment
 	 					</u>
 	 				</div>
-	 				   <form action=something method=POST
+	 				   <form action=student_assignment_report.php method=POST
 	 			          style="text-align:center;font-family:impact;font-size:100%;color:black;">
 	 								Assignment ID: <input type=TEXT name="assign_num"
 	 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
