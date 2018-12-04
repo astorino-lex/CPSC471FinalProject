@@ -28,13 +28,12 @@ session_start();
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
 
-
 		$sql = "Select l.content_id, l.lecture_num, l.content_title, c.user_email FROM lecture_help as l, course_content as c WHERE l.content_id=c.id";
 		$sql = $sql." AND l.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
 
 		$query = $conn->query($sql);
 
-		if($query)
+		if($query->num_rows > 0)
 		{
 			?>
 			<style>
