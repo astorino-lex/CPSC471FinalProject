@@ -2,7 +2,7 @@
 	session_start();
 	$course_name  = $_SESSION['c_name'];
 	$course_id  = $_SESSION['c_id'];
-	
+
 	//if(isSet($_SESSION['rating_popup']))
 	//	echo "<script type='text/javascript'>alert('You've already rated this assignment!') window.location = 'student_assignment_help.php';</script>";
 ?>
@@ -42,7 +42,7 @@
 		//AND r.content_id = c.id AND r.content_title = c.title
 		//GROUP BY assign_num
 		//ORDER BY rating DESC;
-		
+
 		$query = $conn->query($sql);
 
 		if($query->num_rows > 0)
@@ -104,7 +104,7 @@
 					{
 						$row2 = $query2->fetch_assoc();
 						// To get the total rating out of 5 another query must be executed
-						
+
 						$sql3 = "Select truncate(sum(rating_out_of_5)/count(*), 2) from rating_feedback where content_id=".$content_id." AND content_title='".$row['content_title']."';";
 						$query3 = $conn->query($sql3);
 						if($query3)
@@ -113,7 +113,7 @@
 							$rating = $row3['truncate(sum(rating_out_of_5)/count(*), 2)'];
 							$rating = $rating."/5";
 						}
-					 
+
 					}
 					else{
 						$rating = "Not Rated Yet";
