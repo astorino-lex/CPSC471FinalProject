@@ -72,9 +72,10 @@ session_start();
           else {
             echo $row2['minute']."&nbsp;&nbsp;";
           }
+          print "<br>";
 
 					echo "Course: ";
-					echo $row2['course_name'];
+					echo strtoupper($row2['course_name']);
 					echo "&nbsp;";
 					echo $row2['course_id'];
 					print "<br>";
