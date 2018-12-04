@@ -105,12 +105,12 @@
 						Rate Practice Problems
 					</u>
 				</div>
-					 <form action=something method=POST
+					 <form action=student_rating_tmp.php method=POST
 								style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Problem ID: <input type=TEXT name="practice_id"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 									required><BR>
-								Rating out of 5: 	<input type=TEXT name=something
+								Rating out of 5: 	<input type=TEXT name="rating_out_of_5"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 									required><BR>
 						<input type=SUBMIT value="Rate Problem" style="font-family:impact;font-size:90%;width:12%;"><P>
