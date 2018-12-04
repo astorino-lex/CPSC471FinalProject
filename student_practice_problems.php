@@ -66,6 +66,7 @@
 					<th>Practice Problem ID</th>
 					<th>Title</th>
 					<th>Submitted By</th>
+					<th>Rating</th>
 				</tr>
 				</thead>
 			<tbody>
@@ -123,9 +124,6 @@
 									style="text-align:center;font-family:impact;font-size:100%;color:black;">
 									Problem ID: <input type=TEXT name="practice_id"
 										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
-										required><BR>
-									Reason: 	<input type=TEXT name=something
-										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"
 										required><BR>
 							<input type=SUBMIT value="Report Problem" style="font-family:impact;font-size:90%;width:12%;"><P>
 						 </form>

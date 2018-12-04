@@ -66,6 +66,7 @@
 					<th>Assignment ID</th>
 					<th>Title</th>
 					<th>Submitted By</th>
+					<th>Rating</th>
 				</tr>
 				</thead>
 			<tbody>
@@ -85,7 +86,7 @@
 			 </tbody>
 			</table>
 			</p>
-			
+
 				<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
 					<u>
 					View Assignment
@@ -104,12 +105,12 @@
 						Rate Assignment
 					</u>
 				</div>
-				   <form action=something method=POST
+				   <form action=student_rating_tmp.php method=POST
 			          style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Assignment ID: <input type=TEXT name="assign_num"
 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 	 								required><BR>
-								Rating out of 5: 	<input type=TEXT name=something
+								Rating out of 5: 	<input type=TEXT name="rating_out_of_5"
 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 	 								required><BR>
 			  	  <input type=SUBMIT value="Rate Assignment" style="font-family:impact;font-size:90%;width:12%;"><P>
@@ -123,9 +124,6 @@
 	 			          style="text-align:center;font-family:impact;font-size:100%;color:black;">
 	 								Assignment ID: <input type=TEXT name="assign_num"
 	 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
-	 	 								required><BR>
-	 								Reason: 	<input type=TEXT name=something
-	 	 			          style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"
 	 	 								required><BR>
 	 			  	  <input type=SUBMIT value="Report Assignment" style="font-family:impact;font-size:90%;width:12%;"><P>
 	 				   </form>

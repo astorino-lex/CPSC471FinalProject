@@ -66,6 +66,7 @@ session_start();
 					<th>Lecture Help ID</th>
 					<th>Title</th>
 					<th>Submitted By</th>
+					<th>Rating</th>
 				</tr>
 				</thead>
 			<tbody>
@@ -86,13 +87,6 @@ session_start();
 			</table>
 			</p>
 
-			<!--	<form action=student_view_lecture.php method=POST
-					style="margin-left:25%;padding-top:20px;font-family:impact;font-size:120%;color:black;float:left;">
-					Lecture Help ID: <BR><input type=TEXT name="lecture_num"
-					style="display:inline-block;vertical-align:middle;border: 1px solid black;padding: 3px 3px;width:80%;"
-				required><BR>
-				<input type=SUBMIT value="View Content" style="font-family:impact;font-size:90%;width:80%;">
-			</form>-->
 				<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
 					<u>
 					View Lecture Notes
@@ -111,12 +105,12 @@ session_start();
 						Rate Lecture Notes
 					</u>
 				</div>
-					 <form action=something method=POST
+					 <form action=student_rating_tmp.php method=POST
 								style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Notes ID: <input type=TEXT name="lecture_num"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 									required><BR>
-								Rating out of 5: 	<input type=TEXT name=something
+								Rating out of 5: 	<input type=TEXT name="rating_out_of_5"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 									required><BR>
 						<input type=SUBMIT value="Rate Notes" style="font-family:impact;font-size:90%;width:8%;"><P>
@@ -130,9 +124,6 @@ session_start();
 									style="text-align:center;font-family:impact;font-size:100%;color:black;">
 									Notes ID: <input type=TEXT name="lecture_num"
 										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
-										required><BR>
-									Reason: 	<input type=TEXT name=something
-										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:15%;"
 										required><BR>
 							<input type=SUBMIT value="Report Notes" style="font-family:impact;font-size:90%;width:8%;"><P>
 						 </form>
