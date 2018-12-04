@@ -29,7 +29,7 @@
 
 
 
-		$sql = "Select p.id, p.content_title, c.user_email FROM practice_problems as p, course_content as c WHERE p.content_id=c.id";
+		$sql = "Select p.content_id, p.practice_id, p.content_title, c.user_email FROM practice_problems as p, course_content as c WHERE p.content_id=c.id";
 		$sql = $sql." AND p.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
 
 		$query = $conn->query($sql);
@@ -75,7 +75,7 @@
 			{
 				?>
 				<tr text-align="center">
-					<td><?php echo $row['id'] ?></td>
+					<td><?php echo $row['practice_id'] ?></td>
 					<td><?php echo $row['content_title'] ?></td>
 					<td><?php echo $row['user_email'] ?></td>
 					<?php
@@ -131,7 +131,7 @@
 							Report Practice Problems
 						</u>
 					</div>
-						 <form action=something method=POST
+						 <form action=student_problem_report.php method=POST
 									style="text-align:center;font-family:impact;font-size:100%;color:black;">
 									Problem ID: <input type=TEXT name="practice_id"
 										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
@@ -152,4 +152,12 @@
 		}
 
 		?>
+		<?php
+			if($_SESSION['practice_invalid'] == TRUE)
+			{
+				$_SESSION['practice_invalid'] = FALSE;
+				echo "<script type='text/javascript'>alert('That practice ID does not exist, please try again!')
+				window.location = 'student_practice_help.php';</script>";
+			}
+		 ?>
 </html>

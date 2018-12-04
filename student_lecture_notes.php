@@ -29,7 +29,7 @@ session_start();
 
 
 
-		$sql = "Select l.lecture_num, l.content_title, c.user_email FROM lecture_help as l, course_content as c WHERE l.content_id=c.id";
+		$sql = "Select l.content_id, l.lecture_num, l.content_title, c.user_email FROM lecture_help as l, course_content as c WHERE l.content_id=c.id";
 		$sql = $sql." AND l.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
 
 		$query = $conn->query($sql);
@@ -131,7 +131,7 @@ session_start();
 							Report Lecture Notes
 						</u>
 					</div>
-						 <form action=something method=POST
+						 <form action=student_lecture_report.php method=POST
 									style="text-align:center;font-family:impact;font-size:100%;color:black;">
 									Notes ID: <input type=TEXT name="lecture_num"
 										style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
@@ -152,4 +152,13 @@ session_start();
 		}
 
 		?>
+
+		<?php
+			if($_SESSION['lecture_invalid'] == TRUE)
+			{
+				$_SESSION['lecture_invalid'] = FALSE;
+				echo "<script type='text/javascript'>alert('That lecture ID does not exist, please try again!')
+				window.location = 'student_lecture_help.php';</script>";
+			}
+		 ?>
 </html>

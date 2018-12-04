@@ -30,7 +30,7 @@
 
 
 
-		$sql = "Select l.lab_num, l.content_title, c.user_email FROM lab_help as l, course_content as c WHERE l.content_id=c.id";
+		$sql = "Select l.content_id, l.lab_num, l.content_title, c.user_email FROM lab_help as l, course_content as c WHERE l.content_id=c.id";
 		$sql = $sql." AND l.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
 
 		$query = $conn->query($sql);
@@ -132,7 +132,7 @@
 						Report Lab
 					</u>
 				</div>
-					 <form action=something method=POST
+					 <form action=student_lab_report.php method=POST
 								style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Lab ID: <input type=TEXT name="lab_num"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
@@ -153,4 +153,13 @@
 		}
 
 		?>
+
+		<?php
+			if($_SESSION['lab_invalid'] == TRUE)
+			{
+				$_SESSION['lab_invalid'] = FALSE;
+				echo "<script type='text/javascript'>alert('That alab ID does not exist, please try again!')
+				window.location = 'student_lab_help.php';</script>";
+			}
+		 ?>
 </html>

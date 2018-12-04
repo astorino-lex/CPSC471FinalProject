@@ -6,11 +6,11 @@
 	<?php
 	$course_name = $_SESSION['c_name'];
 	$course_id = $_SESSION['c_id'];
-	$assign_num = $_POST['assign_num'];
+	$lab_num = $_POST['lab_num'];
 
-	$_SESSION['assignment_invalid'];
+	$_SESSION['lab_invalid'];
 
-  $sql = "Select * from assign_help as a, course_content as c where a.assign_num=".$assign_num." AND a.content_title = c.title AND a.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
+  $sql = "Select * from lab_help as l, course_content as c where l.lab_num=".$lab_num." AND l.content_title = c.title AND l.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
 
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
@@ -74,7 +74,7 @@
 		$hour = date("h");
 		$minute = date("i");
 
-    $sql2 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('Content pending review: Assignment #".$assign_num."', 'content was reported', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
+    $sql2 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('Content pending review: Lab #".$lab_num."', 'content was reported', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
     $query2 = $conn->query($sql2);
 
     $sql3 = "Select * from notification WHERE course_name = '".$course_name."' AND course_id = ".$course_id." AND subject = 'content was reported' AND month = '".$month."' AND day = ".$day." AND year = ".$year." AND hours = ".$hour." AND minute = ".$minute;
@@ -92,11 +92,11 @@
       $query6 = $conn->query($sql6);
     }
 
-    header("Location:student_assignment_help.php");
+    header("Location:student_lab_help.php");
 	}
 	else{
-		$_SESSION['assignment_invalid'] = TRUE;
-		header("Location:student_assignment_help.php");
+		$_SESSION['lab_invalid'] = TRUE;
+		header("Location:student_lab_help.php");
 	}
 
 	?>
