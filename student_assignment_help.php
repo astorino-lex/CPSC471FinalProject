@@ -136,5 +136,14 @@
 
 		?>
 
+		<?php
+			if($_SESSION['assignment_invalid'] == TRUE)
+	  	{
+	      $_SESSION['assignment_invalid'] = FALSE;
+	      echo "<script type='text/javascript'>alert('That assignment ID does not exist, please try again!')
+				window.location = 'student_assignment_help.php';</script>";
+	  	}
+		 ?>
+
 
 </html>

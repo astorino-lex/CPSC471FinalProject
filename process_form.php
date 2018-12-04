@@ -129,6 +129,10 @@ session_start();
           $_SESSION['favourite_checker'] = FALSE;
           $_SESSION['answer_unvalid'] = FALSE;
           $_SESSION['course_unvalid'] = FALSE;
+          $_SESSION['assignment_invalid'] = FALSE;
+          $_SESSION['lecture_invalid'] = FALSE;
+          $_SESSION['lab_invalid'] = FALSE;
+          $_SESSION['practice_invalid'] = FALSE;
 
 					?>
           <input type="button" value="Select Course" onclick="location='student_select_course.php'"
