@@ -15,7 +15,7 @@ $password = "password";
 
 $conn = new mysqli($servername, $username, $password, $databasename);
 
-$sql = "Select * from practice_problems as a, course_content as c where a.$practice_id=".$practice_id." AND a.content_title = c.title AND a.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
+$sql = "Select * from practice_problems as a, course_content as c where a.practice_id=".$practice_id." AND a.content_title = c.title AND a.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
 
 $query = $conn->query($sql);
 
@@ -49,7 +49,7 @@ if($query->num_rows > 0)
       	window.location = 'student_practice_problems.php';</script>";
 	}
 	else{
-		//user already submitted 
+		//user already submitted
 		echo "<script type='text/javascript'>alert('You have already rated these practice problems!')
       	window.location = 'student_practice_problems.php';</script>";
 	}
