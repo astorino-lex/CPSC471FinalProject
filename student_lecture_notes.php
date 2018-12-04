@@ -78,6 +78,17 @@ session_start();
 					<td><?php echo $row['lecture_num'] ?></td>
 					<td><?php echo $row['content_title'] ?></td>
 					<td><?php echo $row['user_email'] ?></td>
+					<?php
+					$content_id = $row['content_id'];
+					$sql1 = "Select * from rating_feedback where content_id=".$content_id."";
+					$query2 = $conn->query($sql1);
+					if($query2->num_rows > 0)
+					{
+						$row2 = $query2->fetch_assoc();
+						$rating = $row2['rating_out_of_5'];
+					 ?><td><?php echo $rating."/5" ?></td><?php
+					}
+				 ?>
 				</tr>
 
 				<?php
@@ -105,7 +116,7 @@ session_start();
 						Rate Lecture Notes
 					</u>
 				</div>
-					 <form action=student_rating_tmp.php method=POST
+					 <form action=student_lecture_rating.php method=POST
 								style="text-align:center;font-family:impact;font-size:100%;color:black;">
 								Notes ID: <input type=TEXT name="lecture_num"
 									style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
@@ -131,7 +142,13 @@ session_start();
 		}
 		else
 		{
-			echo "There has been no Lecture help uploaded yet!";
+			?>
+			<html>
+			<p style = "text-align:center;font-family:impact;font-size:120%;color:black;">
+				There has been no Lecture Notes Help uploaded yet!
+			</p>
+			</html>
+			<?php
 		}
 
 		?>

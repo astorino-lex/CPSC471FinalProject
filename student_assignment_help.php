@@ -143,7 +143,13 @@
 		}
 		else
 		{
-			echo "There has been no Assignment help uploaded yet!";
+			?>
+			<html>
+			<p style = "text-align:center;font-family:impact;font-size:120%;color:black;">
+				There has been no Assignment Help uploaded yet!
+			</p>
+			</html>
+			<?php
 		}
 
 		?>

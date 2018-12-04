@@ -2,6 +2,7 @@
 	session_start();
 	$course_name  = $_SESSION['c_name'];
 	$course_id  = $_SESSION['c_id'];
+	$popupshown = false;
 ?>
 
 <html>
@@ -34,7 +35,7 @@
 
 		$query = $conn->query($sql);
 
-		if($query)
+		if($query->num_rows > 0)
 		{
 			?>
 			<style>
@@ -78,6 +79,17 @@
 					<td><?php echo $row['lab_num'] ?></td>
 					<td><?php echo $row['content_title'] ?></td>
 					<td><?php echo $row['user_email'] ?></td>
+					<?php
+					$content_id = $row['content_id'];
+					$sql1 = "Select * from rating_feedback where content_id=".$content_id."";
+					$query2 = $conn->query($sql1);
+					if($query2->num_rows > 0)
+					{
+						$row2 = $query2->fetch_assoc();
+						$rating = $row2['rating_out_of_5'];
+					 ?><td><?php echo $rating."/5" ?></td><?php
+					}
+				 ?>
 				</tr>
 
 				<?php
@@ -94,7 +106,7 @@
 			</div>
 			<form action=student_view_lab.php method=POST
 							style="text-align:center;text-align:center;font-family:impact;font-size:100%;color:black;">
-					 Lab ID: <input type=TEXT name="lab_num"
+					 Lab ID:  <input type=TEXT name="lab_num"
 							style="vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 							required><BR>
 					<input type=SUBMIT value="View Lab" style="font-family:impact;font-size:90%;width:8%;"><P>
@@ -105,12 +117,12 @@
 					Rate Lab
 				</u>
 			</div>
-				 <form action=student_rating_tmp.php method=POST
+				 <form action=student_lab_rating.php  method=POST
 							style="text-align:center;font-family:impact;font-size:100%;color:black;">
-						 	Lab ID: <input type=TEXT name="lab_num"
+						 	Lab ID:  <input type=TEXT name="lab_num"
 								style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 								required><BR>
-							Rating out of 5: 	<input type=TEXT name="rating_out_of_5"
+							Rating out of 5: 	 <input type=TEXT name="rating_out_of_5"
 								style="display:inline-block;vertical-align:left;border: 1px solid black;padding: 3px 3px;width:8%;"
 								required><BR>
 					<input type=SUBMIT value="Rate Lab" style="font-family:impact;font-size:90%;width:8%;"><P>
@@ -131,7 +143,13 @@
 		}
 		else
 		{
-			echo "There has been no Lab help uploaded yet!";
+			?>
+			<html>
+			<p style = "text-align:center;font-family:impact;font-size:120%;color:black;">
+				There has been no Lab Help uploaded yet!
+			</p>
+			</html>
+			<?php
 		}
 
 		?>
