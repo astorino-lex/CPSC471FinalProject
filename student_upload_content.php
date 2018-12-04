@@ -88,8 +88,9 @@ while($row4 = $query4->fetch_assoc()){
   $query6 = $conn->query($sql6);
 }
 
+
 if(isset($_FILES['lecture'])){
-      $errors= array();
+      $errors= "";
       $file_name = $_FILES['lecture']['name'];
       $file_size =$_FILES['lecture']['size'];
       $file_tmp =$_FILES['lecture']['tmp_name'];
@@ -98,17 +99,21 @@ if(isset($_FILES['lecture'])){
 		$file_ext=explode('.',$_FILES['lecture']['name']);
 		$file_ext = end($file_ext);
 		$file_ext = strtolower($file_ext);
-      $expensions= array("jpeg","jpg","png", "docx", "pdf");
+      $extensions= array("pdf");
 
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      if(in_array($file_ext,$extensions)== false){
+        $errors='Extension not allowed, KickstartU only accepts .pdf!';
+        echo "<script type='text/javascript'>alert('Extension not allowed, KickstartU only accepts .pdf!')
+        window.location = 'student_upload_content.php';</script>";
       }
 
       if($file_size > 2097152){
-         $errors[]='File size must be less than 2 MB';
+        $errors='File size must be exactly 2 MB';
+        echo "<script type='text/javascript'>alert('File size must be exactly 2 MB')
+        window.location = 'student_upload_content.php';</script>";
       }
 
-      if(empty($errors)==true){
+      if(strlen($errors)==0){
 		  $tmpdir = "data/".$course_name.$course_id."/lectures/";
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
@@ -131,12 +136,10 @@ if(isset($_FILES['lecture'])){
 
 		$query3 = $conn ->query($sql3);
 
-      }else{
-         print_r($errors);
       }
    }
    if(isset($_FILES['lab'])){
-      $errors= array();
+      $errors= "";
       $file_name = $_FILES['lab']['name'];
       $file_size =$_FILES['lab']['size'];
       $file_tmp =$_FILES['lab']['tmp_name'];
@@ -145,17 +148,21 @@ if(isset($_FILES['lecture'])){
 		$file_ext=explode('.',$_FILES['lab']['name']);
 		$file_ext = end($file_ext);
 		$file_ext = strtolower($file_ext);
-      $expensions= array("jpeg","jpg","png", "docx", "pdf");
+      $extensions= array("pdf");
 
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a different file type.";
+      if(in_array($file_ext,$extensions)== false){
+        $errors='Extension not allowed, KickstartU only accepts .pdf!';
+        echo "<script type='text/javascript'>alert('Extension not allowed, KickstartU only accepts .pdf!')
+        window.location = 'student_upload_content.php';</script>";
       }
 
       if($file_size > 2097152){
-         $errors[]='File size must be less than 2 MB';
+        $errors='File size must be exactly 2 MB';
+        echo "<script type='text/javascript'>alert('File size must be exactly 2 MB')
+        window.location = 'student_upload_content.php';</script>";
       }
 
-      if(empty($errors)==true){
+      if(strlen($errors)==0){
 		  $tmpdir = "data/".$course_name.$course_id."/lab/";
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
@@ -165,12 +172,12 @@ if(isset($_FILES['lecture'])){
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
 
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471Project";
-		$username = "dylan";
-		$password = "password";
+		// $servername = "127.0.0.1";
+		// $databasename = "cpsc471Project";
+		// $username = "dylan";
+		// $password = "password";
 
-		$conn = new mysqli($servername, $username, $password, $databasename);
+		//$conn = new mysqli($servername, $username, $password, $databasename);
 
 
 
@@ -188,12 +195,10 @@ if(isset($_FILES['lecture'])){
 
 		$query3 = $conn ->query($sql3);
 
-      }else{
-         print_r($errors);
       }
    }
    if(isset($_FILES['assignment'])){
-      $errors= array();
+      $errors = "";
       $file_name = $_FILES['assignment']['name'];
       $file_size =$_FILES['assignment']['size'];
       $file_tmp =$_FILES['assignment']['tmp_name'];
@@ -202,17 +207,20 @@ if(isset($_FILES['lecture'])){
 		$file_ext=explode('.',$_FILES['assignment']['name']);
 		$file_ext = end($file_ext);
 		$file_ext = strtolower($file_ext);
-      $expensions= array("jpeg","jpg","png", "docx", "pdf");
+      $extensions= array("pdf");
 
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      if(in_array($file_ext,$extensions)== false){
+         $errors='Extension not allowed, KickstartU only accepts .pdf!';
+          echo "<script type='text/javascript'>alert('Extension not allowed, KickstartU only accepts .pdf!')
+          window.location = 'student_upload_content.php';</script>";
       }
-
       if($file_size > 2097152){
-         $errors[]='File size must be exactly 2 MB';
+         $errors='File size must be exactly 2 MB';
+         echo "<script type='text/javascript'>alert('File size must be exactly 2 MB')
+         window.location = 'student_upload_content.php';</script>";
       }
 
-      if(empty($errors)==true){
+      if(strlen($errors)==0){
 		  $tmpdir = "data/".$course_name.$course_id."/assignment/";
 		  if(!is_dir($tmpdir))
 			mkdir($tmpdir, 0755, true);
@@ -221,13 +229,13 @@ if(isset($_FILES['lecture'])){
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
-
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471Project";
-		$username = "dylan";
-		$password = "password";
-
-		$conn = new mysqli($servername, $username, $password, $databasename);
+    //
+		// $servername = "127.0.0.1";
+		// $databasename = "cpsc471Project";
+		// $username = "dylan";
+		// $password = "password";
+    //
+		// $conn = new mysqli($servername, $username, $password, $databasename);
 
 
 
@@ -245,9 +253,7 @@ if(isset($_FILES['lecture'])){
 
 		$query3 = $conn ->query($sql3);
 
-      }else{
-         print_r($errors);
-      }
+     }
    }
    if(isset($_FILES['practiceproblems'])){
 
@@ -260,10 +266,12 @@ if(isset($_FILES['lecture'])){
 		$file_ext=explode('.',$_FILES['practiceproblems']['name']);
 		$file_ext = end($file_ext);
 		$file_ext = strtolower($file_ext);
-      $expensions= array("jpeg","jpg","png", "docx", "pdf");
+      $extensions= array("pdf");
 
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      if(in_array($file_ext,$extensions)== false){
+         $errors[]="extension not allowed, KickstartU only accepts .pdf!";
+         echo "<script type='text/javascript'>alert('That lecture ID does not exist, please try again!')
+         window.location = 'student_lecture_notes.php';</script>";
       }
 
       if($file_size > 2097152){
@@ -278,13 +286,13 @@ if(isset($_FILES['lecture'])){
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
-
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471Project";
-		$username = "dylan";
-		$password = "password";
-
-		$conn = new mysqli($servername, $username, $password, $databasename);
+    //
+		// $servername = "127.0.0.1";
+		// $databasename = "cpsc471Project";
+		// $username = "dylan";
+		// $password = "password";
+    //
+		// $conn = new mysqli($servername, $username, $password, $databasename);
 
 
 
@@ -302,8 +310,6 @@ if(isset($_FILES['lecture'])){
 
 		$query3 = $conn ->query($sql3);
 
-      }else{
-         print_r($errors);
       }
    }
 ?>
@@ -334,7 +340,7 @@ if(isset($_FILES['lecture'])){
         </p>
       <form action="" method="POST" enctype="multipart/form-data">
          <input type="file" name="practiceproblems"  style="margin-left:2%;font-family:impact;"/>
-         <input type="submit" style="width:8%;font-family:impact;"/>
+         <input type="submit" style="width:8%;"/>
       </form>
 
 

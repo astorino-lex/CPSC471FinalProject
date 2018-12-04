@@ -74,7 +74,7 @@
 		$hour = date("h");
 		$minute = date("i");
 
-    $sql2 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('Content pending review: Assignment #".$assign_num."', 'content was reported', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
+    $sql2 = "Insert into notification (message, subject, month, day, year, hours, minute, course_name, course_id) values('Content pending review: Content ID #".$rowupdate['content_id']."', 'content was reported', '".$month."', ".$day.", ".$year.", ".$hour.", ".$minute.", '".$course_name."', ".$course_id.");";
     $query2 = $conn->query($sql2);
 
     $sql3 = "Select * from notification WHERE course_name = '".$course_name."' AND course_id = ".$course_id." AND subject = 'content was reported' AND month = '".$month."' AND day = ".$day." AND year = ".$year." AND hours = ".$hour." AND minute = ".$minute;
