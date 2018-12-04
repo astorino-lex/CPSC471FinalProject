@@ -10,9 +10,7 @@
 
 	$_SESSION['assignment_invalid'];
 
-	$sql = "Select a.content_title from assign_help as a AND course_content as c where a.assign_num=".$assign_num." ";
-	$sql = $sql."AND a.content_title = c.content_title AND a.content_id = c.id AND c.course_name = '".$course_name."' ";
-	$sql = $sql."AND c.course_id =".$course_id.";";
+	$sql = "Select * from assign_help as a, course_content as c where a.assign_num=".$assign_num." AND a.content_title = c.title AND a.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
 	//echo $sql;
 	$servername = "127.0.0.1";
 	$databasename = "cpsc471project";
