@@ -88,30 +88,6 @@ session_start();
 					else
 						$rating = $row['rating']."/5";
 					?><td><?php echo $rating ?></td><?php
-					/*
-					$content_id = $row['content_id'];
-					$sql1 = "Select * from rating_feedback where content_id=".$content_id."";
-					$query2 = $conn->query($sql1);
-					if($query2->num_rows > 0)
-					{
-						$row2 = $query2->fetch_assoc();
-						// To get the total rating out of 5 another query must be executed
-						
-						$sql3 = "Select truncate(sum(rating_out_of_5)/count(*), 2) from rating_feedback where content_id=".$content_id." AND content_title='".$row['content_title']."';";
-						$query3 = $conn->query($sql3);
-						if($query3)
-						{
-							$row3 = $query3->fetch_assoc();
-							$rating = $row3['truncate(sum(rating_out_of_5)/count(*), 2)'];
-							$rating = $rating."/5";
-						}
-					 
-					}
-					else{
-						$rating = "Not Rated Yet";
-					}
-					?><td><?php echo $rating ?></td><?php
-					*/
 				 ?>
 				</tr>
 

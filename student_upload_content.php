@@ -76,7 +76,13 @@ $query2 = $conn->query($sql2);
 $sql3 = "Select * from notification WHERE course_name = '".$course_name."' AND course_id = ".$course_id." AND subject = 'approval pending' AND month = '".$month."' AND day = ".$day." AND year = ".$year." AND hours = ".$hour." AND minute = ".$minute;
 $query3 = $conn->query($sql3);
 $row = $query3->fetch_assoc();
+// This does not get the right id if they are submitted at the same time, go two lines down for proper grab of the id
 $notify_id = $row['id'];
+// This grabs teh last inserted ID. aka the notification id
+$sql_getID = "SELECT last_insert_id();";
+$query_getID = $conn->query($sql_getID);
+$row_id = $query_getID->fetch_assoc();
+$notify_id = $row_id['last_insert_id()'];
 
 $sql4 = "Select * from course WHERE course_name = '".$course_name."' AND id = ".$course_id;
 $query4 = $conn->query($sql4);
