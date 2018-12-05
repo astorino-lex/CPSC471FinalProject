@@ -117,6 +117,10 @@
 		while($row8 = $query8->fetch_assoc()){
 			$sql5 = "UPDATE student_notifications SET email_list = '".$email_list.";".$row8['user_email']."' WHERE notification_id = ".$notify_id.";";
 			$query15 = $conn->query($sql5);
+			$sql16 = "Select * from student_notifications WHERE notification_id = ".$notify_id;
+			$query16 = $conn->query($sql16);
+			$temp = $query16 ->fetch_assoc();
+			$email_list = $temp['email_list'];
 		}
 
     $_SESSION['answer_unvalid'] = FALSE;

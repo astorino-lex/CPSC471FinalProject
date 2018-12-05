@@ -103,16 +103,22 @@
 		$query11 = $conn->query($sql11);
 		$sql8 = "Select * from favourites WHERE course_name = '".$_SESSION['c_name']."' AND course_id = ".$_SESSION['c_id'];
 		$query8 = $conn->query($sql8);
-		$row8 = $query8->fetch_assoc();
-		$sql9 = "Insert into student_notifications (notification_id, email_list) values(".$notify_id.", '".$row8['user_email']."');";
-		$query9 = $conn->query($sql9);
-		$sql16 = "Select * from student_notifications WHERE notification_id = ".$notify_id;
-		$query16 = $conn->query($sql16);
-		$temp = $query16 ->fetch_assoc();
-		$email_list = $temp['email_list'];
-		while($row8 = $query8->fetch_assoc()){
-			$sql5 = "UPDATE student_notifications SET email_list = '".$email_list.";".$row8['user_email']."' WHERE notification_id = ".$notify_id.";";
-			$query15 = $conn->query($sql5);
+		if ($query8 ->num_rows >0){
+			$row8 = $query8->fetch_assoc();
+			$sql9 = "Insert into student_notifications (notification_id, email_list) values(".$notify_id.", '".$row8['user_email']."');";
+			$query9 = $conn->query($sql9);
+			$sql16 = "Select * from student_notifications WHERE notification_id = ".$notify_id;
+			$query16 = $conn->query($sql16);
+			$temp = $query16 ->fetch_assoc();
+			$email_list = $temp['email_list'];
+			while($row8 = $query8->fetch_assoc()){
+				$sql5 = "UPDATE student_notifications SET email_list = '".$email_list.";".$row8['user_email']."' WHERE notification_id = ".$notify_id.";";
+				$query15 = $conn->query($sql5);
+				$sql16 = "Select * from student_notifications WHERE notification_id = ".$notify_id;
+				$query16 = $conn->query($sql16);
+				$temp = $query16 ->fetch_assoc();
+				$email_list = $temp['email_list'];
+			}
 		}
 	}
 	header("Location:student_forum_page.php");
