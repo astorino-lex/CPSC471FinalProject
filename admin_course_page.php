@@ -142,15 +142,19 @@
 </body>
 
 <?php
+		if(isSet($_SESSION['approved_already'])){
 		if ($_SESSION['approved_already'] == TRUE){
 			echo "<script type='text/javascript'>alert('That content is already approved!')
 					window.location = 'admin_course_page.php';</script>";
 					$_SESSION['approved_already'] = FALSE;
 		}
+		}
+		if(isSet($_SESSION['$invalidID'])){
 		if ($_SESSION['$invalidID'] == TRUE){
 			echo "<script type='text/javascript'>alert('That is not a valid content ID!')
 					window.location = 'admin_course_page.php';</script>";
 					$_SESSION['$invalidID'] = FALSE;
+		}
 		}
 ?>
 </html>

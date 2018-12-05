@@ -34,14 +34,6 @@
 		$sql = $sql." LEFT JOIN rating_feedback as r ON r.content_id = c.id AND r.content_title = c.title";
 		$sql = $sql." Where a.content_id=c.id AND a.content_title=c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND c.approval_status=1";
 		$sql = $sql." GROUP BY assign_num ORDER BY rating DESC;";
-		//$sql = "Select a.content_id, a.assign_num, a.content_title, c.user_email FROM assign_help as a, course_content as c WHERE a.content_id=c.id";
-		//$sql = $sql." AND a.content_title = c.title AND c.course_id=".$course_id." AND c.course_name='".$course_name."' AND approval_status = 1;";
-
-		//Select a.content_id, a.assign_num, a.content_title, c.user_email, truncate(sum(r.rating_out_of_5)/count(r.content_id), 2) as rating FROM assign_help as a, course_content as c, rating_feedback as r
-		//Where a.content_id=c.id AND a.content_title=c.title AND c.course_id=471 AND c.course_name='cpsc' AND c.approval_status=1
-		//AND r.content_id = c.id AND r.content_title = c.title
-		//GROUP BY assign_num
-		//ORDER BY rating DESC;
 
 		$query = $conn->query($sql);
 
