@@ -3,6 +3,10 @@ ob_start();
 header("Cache-Control: no cache");
 session_cache_limiter("private_no_expire");
 session_start();
+$_SESSION['servername'] = "127.0.0.1";
+$_SESSION['databasename'] = "cpsc471project";
+$_SESSION['username_db'] = "dylan";
+$_SESSION['password_db'] = "password";
 ?>
 
 <html>
@@ -29,10 +33,10 @@ session_start();
 	}
 		// Trying the database part
 
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471project";
-		$username = "dylan";
-		$password = "password";
+		$servername = $_SESSION['servername'];
+		$databasename = $_SESSION['databasename'];
+		$username = $_SESSION['username_db'];
+		$password = $_SESSION['password_db'];
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
