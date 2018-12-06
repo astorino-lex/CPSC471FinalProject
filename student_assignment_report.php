@@ -12,10 +12,10 @@
 
   $sql = "Select * from assign_help as a, course_content as c where a.assign_num=".$assign_num." AND a.content_title = c.title AND a.content_id = c.id AND c.course_name = '".$course_name."' AND c.course_id =".$course_id." AND c.approval_status = 1;";
 
-	$servername = "127.0.0.1";
-	$databasename = "cpsc471project";
-	$username = "dylan";
-	$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 

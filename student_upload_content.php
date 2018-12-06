@@ -14,10 +14,10 @@ session_start();
               style="margin-left: 80%;font-family:impact;font-size:90%;width:15%;color:black;"><P>
 
 <?php
-$servername = "127.0.0.1";
-$databasename = "cpsc471Project";
-$username = "dylan";
-$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 $conn = new mysqli($servername, $username, $password, $databasename);
 
@@ -178,15 +178,6 @@ if(isset($_FILES['lecture'])){
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
 
-		// $servername = "127.0.0.1";
-		// $databasename = "cpsc471Project";
-		// $username = "dylan";
-		// $password = "password";
-
-		//$conn = new mysqli($servername, $username, $password, $databasename);
-
-
-
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
 
 		//$query2 = $conn->query($sql2);
@@ -235,16 +226,6 @@ if(isset($_FILES['lecture'])){
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
 
-    //
-		// $servername = "127.0.0.1";
-		// $databasename = "cpsc471Project";
-		// $username = "dylan";
-		// $password = "password";
-    //
-		// $conn = new mysqli($servername, $username, $password, $databasename);
-
-
-
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
 
 		//$query2 = $conn->query($sql2);
@@ -291,16 +272,6 @@ if(isset($_FILES['lecture'])){
 		move_uploaded_file($file_tmp,$tmpdir.$file_name);
 		$sql = "INSERT INTO course_content (title, format, user_email,  course_id, course_name) ";
 		$sql = $sql."VALUES('".$file_name."', '".$file_ext."', '".$studentname."', ".$course_id.", '".$course_name."');";
-
-    //
-		// $servername = "127.0.0.1";
-		// $databasename = "cpsc471Project";
-		// $username = "dylan";
-		// $password = "password";
-    //
-		// $conn = new mysqli($servername, $username, $password, $databasename);
-
-
 
 		//$sql2 = "SELECT LAST_INSERT_ID() FROM course_content;";
 

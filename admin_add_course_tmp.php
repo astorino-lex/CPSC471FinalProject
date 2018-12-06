@@ -9,13 +9,13 @@
 	$course_semester = $_POST['course_semester'];
 	echo $course_name;
 	echo $course_id;
-	$sql = "Insert into course (course_name, id, title, semester, user_email, forum_id) ";
-	$sql = $sql."values('".$course_name."', ".$course_id.", '".$course_title."', '".$course_semester."', '".$admin_name."',3);";
+	$sql = "Insert into course (course_name, id, title, semester, user_email) ";
+	$sql = $sql."values('".$course_name."', ".$course_id.", '".$course_title."', '".$course_semester."', '".$admin_name."');";
 
-	$servername = "127.0.0.1";
-	$databasename = "cpsc471project";
-	$username = "dylan";
-	$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 

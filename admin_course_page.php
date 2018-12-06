@@ -36,10 +36,10 @@
 	$course_name  = $_SESSION['c_name'];
 	$course_id  =   $_SESSION['c_id'];
 
-	$servername = "127.0.0.1";
-	$databasename = "cpsc471Project";
-	$username = "dylan";
-	$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 
@@ -64,7 +64,8 @@
 	$sql = "Select * from course_content where course_name = '".$course_name."' AND course_id =".$course_id;
 
 	$query = $conn->query($sql);
-	// We can make this into a table to look better later...  for now this works
+	if($query->num_rows > 0)
+	{
 	?>
 	<table>
 	  <tr style = "background-color: DarkRed">
@@ -79,8 +80,7 @@
 	  <tr>
 	<?php
 
-	if($query->num_rows > 0)
-	{
+	
 		while($row = $query->fetch_assoc())
 		{
 			?>
@@ -107,13 +107,21 @@
 				elseif($row['approval_status'] == $one) {
 					echo "Approved";
 				}
-		}
+		}?>
+		</th>
+		</tr>
+		</table>
+		<?php
+	}
+	else
+	{
+		?><p style="text-align:left;margin-left:15%;padding-bottom:5px;font-family:impact;font-size:120%;color:black;"><?php
+		echo "No content has been uploaded yet!</p>";
 	}
 
 ?>
-	</th>
-	</tr>
-	</table>
+	
+	
 	<P></p>
 	<div style="text-align:center;font-family:impact;font-size:120%;color:black;">
 		<u>

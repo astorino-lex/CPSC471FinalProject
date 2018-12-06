@@ -16,10 +16,10 @@ session_start();
   $_SESSION['course_name_input']= $c_name;
   $_SESSION['course_id_input']= $c_id;
 
-	$servername = "127.0.0.1";
-	$databasename = "cpsc471project";
-	$username = "dylan";
-	$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 	$conn = new mysqli($servername, $username, $password, $databasename);
 

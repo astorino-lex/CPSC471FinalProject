@@ -26,10 +26,10 @@
 	$sql = "Select * from course where user_email = '".$admin_name."'";
 
 
-		$servername = "127.0.0.1";
-		$databasename = "cpsc471project";
-		$username = "dylan";
-		$password = "password";
+	$servername = $_SESSION['servername'];
+	$databasename = $_SESSION['databasename'];
+	$username = $_SESSION['username_db'];
+	$password = $_SESSION['password_db'];
 
 		$conn = new mysqli($servername, $username, $password, $databasename);
 
