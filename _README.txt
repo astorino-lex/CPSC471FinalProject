@@ -9,7 +9,7 @@ The starting page, the login page is where you will want to start the program.
 
 
 ********************************************************************************************************************************************
-Database Connection:
+Database Connection (Please make sure your MYSQL server is already running):
 In order to connect to the database, you will find the connection information on lines 6, 7, 8, and 9 on process_form.php
 
 	- Please change your MYSQL server name, database name, username, and password or the website will not be able to connect to the database.
