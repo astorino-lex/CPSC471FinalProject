@@ -1,5 +1,7 @@
 README.txt
 
+*** If there are problems with any of the source code, it can also be found at https://github.com/Dylan-Gordon/CPSC471FinalProject ***
+
 ********************************************************************************************************************************************
 Login:
 The starting page, the login page is where you will want to start the program.
